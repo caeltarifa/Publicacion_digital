@@ -12,7 +12,7 @@ def add_documents(request):
 	form = AddDocument(request.POST or None, request.FILES or None)
 	errors = None
 	if form.is_valid():
-		if request.user.is_authenticated:
+		if request.user.is_authenticated and not request.user.groups.filter(name='G_SUSCRIPTORES_AIP'):
 
 			# saving the details in the db
 			obj = Document.objects.create(
@@ -42,9 +42,10 @@ def add_documents(request):
 			
 	if form.errors:
 		errors = form.errors
-
 	template_name = 'documents/add_documents.html'
 	context = {"form":form, "errors":errors}
+	if request.user.is_authenticated and request.user.groups.filter(name='G_SUSCRIPTORES_AIP'):
+		return redirect('/')
 	return render(request, template_name, context)
 
 def display_documents(request):
@@ -88,3 +89,12 @@ def delete_document(request, pk):
 
 	messages.success(request, "successfully deleted the document")
 	return redirect('documents:user_doc')
+
+
+from django import template
+
+register = template.Library()
+
+@register.filter(name='esta_en_grupo')
+def esta_en_grupo(user, nombre_grupo):
+	return user.groups.filter(name=nombre_grupo).exists()
