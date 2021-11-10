@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+	<div class="col-md-4 col-md-offset-4">
+		<h2>Se ha cerrado la cuenta exitosamente!</h2>
+		<div class="border-top pt-3">
+			<p class="text-muted">
+				<a href="{% url 'login' %}">Ingresar nuevamente?</a>
+			</p>
+		</div>
+	</div>
+</div>		
+
+
+{% endblock content %}
