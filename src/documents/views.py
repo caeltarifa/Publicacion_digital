@@ -6,7 +6,7 @@ from document_viewer.settings import CDN_DOMAIN
 from .models import Document, DocumentUpload
 from .forms import AddDocument
 
-
+# comentarios
 @login_required()
 def add_documents(request):
     form = AddDocument(request.POST or None, request.FILES or None)
@@ -95,5 +95,6 @@ def delete_document(request, pk):
 
     messages.success(request, "successfully deleted the document")
     return redirect("documents:user_doc")
+
 
 ##hola como estas
