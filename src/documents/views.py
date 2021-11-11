@@ -8,7 +8,10 @@ from .forms import AddDocument
 
 # comentarios
 #   parte 1
-
+#       trabajando 1
+#       trabajando 2
+#       trabajando 3
+#       trabajando 4
 
 #   parte 2
 
