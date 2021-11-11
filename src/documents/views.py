@@ -96,3 +96,4 @@ def delete_document(request, pk):
     messages.success(request, "successfully deleted the document")
     return redirect("documents:user_doc")
 
+##hola como estas
