@@ -90,11 +90,3 @@ def delete_document(request, pk):
 	messages.success(request, "successfully deleted the document")
 	return redirect('documents:user_doc')
 
-
-from django import template
-
-register = template.Library()
-
-@register.filter(name='esta_en_grupo')
-def esta_en_grupo(user, nombre_grupo):
-	return user.groups.filter(name=nombre_grupo).exists()
