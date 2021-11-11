@@ -7,6 +7,19 @@ from .models import Document, DocumentUpload
 from .forms import AddDocument
 
 # comentarios
+#   parte 1
+#       trabajando 1
+#       trabajando 2
+#       trabajando 3
+#       trabajando 4--- te amo amor
+
+#   parte 2
+# comentario1
+# comentario2
+# comentario3
+# TE AMO CAELITO
+
+
 @login_required()
 def add_documents(request):
     form = AddDocument(request.POST or None, request.FILES or None)
