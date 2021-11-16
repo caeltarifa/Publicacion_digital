@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+{% load static %}
+{% load apptags_users %}
+
+
+{% block CSS %}
+	<link href="{% static 'css/style_display_users.css' %}" rel="stylesheet">
+{% endblock CSS %}
+
+
+{% block content %}
+
+<div class="container">
+    <h1>Lista de usuarios</h1>
+    	<div class="row">
+			<div class="col-md-6">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title"><strong>Administradores</strong></h3>
+						<div class="pull-right">
+							<span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
+								<i class="glyphicon glyphicon-search"></i>
+							</span>
+						</div>
+					</div>
+					<div class="panel-body">
+						<input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Developers" />
+					</div>
+					<table class="table table-hover" id="dev-table">
+						<thead>
+							<tr>
+								<th>&nbsp;</th>
+								<th>Username</th>
+								<th>Nombre</th>
+								<th>Estado</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for user in user_list %}
+								{% if user.is_staff %}
+									<tr>
+										<td>{{forloop.counter}}</td>
+										<td>{{user.username}}</td>
+										<td>{{user.first_name}} &nbsp; {{user.last_name}} </td>
+										<td>{{user.is_active}}</td>
+									</tr>
+								{% endif %}
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title"><strong>Suscripciones</strong> </h3>
+						<div class="pull-right">
+							<span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
+								<i class="glyphicon glyphicon-search"></i>
+							</span>
+						</div>
+					</div>
+					<div class="panel-body">
+						<input type="text" class="form-control" id="task-table-filter" data-action="filter" data-filters="#task-table" placeholder="Filter Tasks" />
+					</div>
+					<table class="table table-hover" id="task-table">
+						<thead>
+							<tr>
+								{% comment %} <th>&nbsp;</th>
+								<th>Task</th>
+								<th>Assignee</th>
+								<th>Status</th> {% endcomment %}
+
+								<th>&nbsp;</th>
+								<th>Usuario</th>
+								<th>Nombre</th>
+								<th>Estado</th>
+
+							</tr>
+						</thead>
+						<tbody>
+							{% for user in user_list %}
+								{% if not user.is_staff %}
+									{% if user.is_active %}
+									<tr>
+									{% else %}
+									<tr style="background-color: rgb(253, 238, 238);">
+									{% endif %}
+										<td>{{forloop.counter}}</td>
+										<td>{{user.username}}</td>
+										<td>{{user.first_name}} &nbsp; {{user.last_name}}</td>
+										<td><code style="color:green">online</code></td>
+										
+										{% if user.is_active %}
+											<td>
+												<a href="{% url 'deactivate_user' pk=user.id %}">
+													<button class="btn btn-link btn-sm">Desactivar</button>
+												</a>
+											</td>
+										{% else %}
+											<td>
+												<a href="{% url 'activate_user' pk=user.id %}">
+													<button class="btn btn-link btn-sm">Activar</button>
+												</a>
+											</td>
+										{% endif %}
+									</tr>
+								{% endif %}
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock content %}
+
+{% block JS %}
+<script type="application/javascript">
+(function(){
+    'use strict';
+	var $ = jQuery;
+	$.fn.extend({
+		filterTable: function(){
+			return this.each(function(){
+				$(this).on('keyup', function(e){
+					$('.filterTable_no_results').remove();
+					var $this = $(this), 
+                        search = $this.val().toLowerCase(), 
+                        target = $this.attr('data-filters'), 
+                        $target = $(target), 
+                        $rows = $target.find('tbody tr');
+                        
+					if(search == '') {
+						$rows.show(); 
+					} else {
+						$rows.each(function(){
+							var $this = $(this);
+							$this.text().toLowerCase().indexOf(search) === -1 ? $this.hide() : $this.show();
+						})
+						if($target.find('tbody tr:visible').size() === 0) {
+							var col_count = $target.find('tr').first().find('td').size();
+							var no_results = $('<tr class="filterTable_no_results"><td colspan="'+col_count+'">No results found</td></tr>')
+							$target.find('tbody').append(no_results);
+						}
+					}
+				});
+			});
+		}
+	});
+	$('[data-action="filter"]').filterTable();
+})(jQuery);
+
+$(function(){
+    // attach table filter plugin to inputs
+	$('[data-action="filter"]').filterTable();
+	
+	$('.container').on('click', '.panel-heading span.filter', function(e){
+		var $this = $(this), 
+			$panel = $this.parents('.panel');
+		
+		$panel.find('.panel-body').slideToggle();
+		if($this.css('display') != 'none') {
+			$panel.find('.panel-body input').focus();
+		}
+	});
+	$('[data-toggle="tooltip"]').tooltip();
+})
+</script>
+{% endblock JS %}
