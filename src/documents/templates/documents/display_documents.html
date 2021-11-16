@@ -6,9 +6,6 @@
 
 {% block CSS %}
 
-<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
-
-
 <style>
 	.container_foto {
 		background-color: rgba(57, 62, 93, 0.7);
@@ -113,6 +110,7 @@
 		opacity: 1;
 	}
 </style>
+
 {% endblock CSS %}
 
 
@@ -172,230 +170,73 @@
 		<h1>AERODROMOS</h1>
 
 
-		<div class="container">
-			<ul id="myTabs" class="nav nav-pills nav-justified" role="tablist" data-tabs="tabs">
-				<li class="active"><a href="#Commentary" data-toggle="tab">Commentary</a></li>
-				<li><a href="#Videos" data-toggle="tab">Videos</a></li>
-				<li><a href="#Events" data-toggle="tab">Events</a></li>
-			</ul>
-			<div class="tab-content">
-				<div role="tabpanel" class="tab-pane fade in active" id="Commentary">Commentary WP_Query goes here.
-				</div>
-				<div role="tabpanel" class="tab-pane fade" id="Videos">Videos WP_Query goes here.</div>
-				<div role="tabpanel" class="tab-pane fade" id="Events">Events WP_Query goes here.</div>
-			</div>
-		</div>
+
+		<ul class="nav nav-tabs">
+			<li class="active">
+				<a data-toggle="tab" href="#home">AD 0</a>
+			</li>
+			<li>
+				<a data-toggle="tab" href="#menu1">AD 1</a>
+			</li>
+			<li>
+				<a data-toggle="tab" href="#menu2">AD 2 INTL</a>
+			</li>
+			<li>
+				<a data-toggle="tab" href="#menu3">AD 2 NTL</a>
+			</li>
+		</ul>
+
+		<div class="tab-content">
+
+			<div id="home" class="tab-pane fade in active">
+				<h3>HOME</h3>
+				<!-- <object data='https://pdfjs-express.s3-us-west-2.amazonaws.com/docs/choosing-a-pdf-viewer.pdf'
+					type="application/pdf" width="500" height="678">
+					<iframe src='https://pdfjs-express.s3-us-west-2.amazonaws.com/docs/choosing-a-pdf-viewer.pdf'
+						width="100%" height="678">
+						<p>This browser does not support PDF!</p>
+					</iframe>
+				</object> -->
 
 
-
-		<h2>AD 0</h2>
-		<div class="container-fluid contenedor text-center">
-			<div class=" container text-center">
-				{% for obj in object_list %}
-				{% with obj.title|split:' - ' as vec_titulos %}
-				{% ifequal vec_titulos.0 'AD0' %}
-				{% for doc in document_list %}
-				{% if doc.document_id == obj.id %}
-				<a href="http://google.com" target="_blank" rel="noopener noreferrer">
-					<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto ">
-						<div class="ver_mas text-center">
-							<span class="lnr lnr-eye"></span>
-							Publicar
-						</div>
-						<article class="text-left">
-							<h2>{{doc}}</h2>
-							<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
-								<button class="btn btn-info" style="margin: 0 5px 10px 0;">{{doc}}</button>
-							</a>
-						</article>
-						<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
-							alt="">
-					</div>
-				</a>
-				{% endif %}
-				{% endfor %}
-
-				{% endifequal%}
-				{% endwith%}
-				{% endfor%}
-			</div>
-		</div>
-
-
-
-		<h2>AD 1</h2>
-		<div class="container-fluid contenedor text-center">
-			<div class=" container text-center">
-				{% for obj in object_list %}
-				{% with obj.title|split:' - ' as vec_titulos %}
-				{% ifequal vec_titulos.0 'AD1' %}
-				{% for doc in document_list %}
-				{% if doc.document_id == obj.id %}
-				<a href="http://google.com" target="_blank" rel="noopener noreferrer">
-					<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto ">
-						<div class="ver_mas text-center">
-							<span class="lnr lnr-eye"></span>
-							Publicar
-						</div>
-						<article class="text-left">
-							<h2>{{doc}}</h2>
-							<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
-								<button class="btn btn-info" style="margin: 0 5px 10px 0;">{{doc}}</button>
-							</a>
-						</article>
-						<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
-							alt="">
-					</div>
-				</a>
-				{% endif %}
-				{% endfor %}
-
-				{% endifequal%}
-				{% endwith%}
-				{% endfor%}
-			</div>
-		</div>
-
-
-		<h2>AD 2 INTL</h2>
-		<div class="container-fluid contenedor text-center">
-			<div class=" container text-center">
-				{% for obj in object_list %}
-				{% with obj.title|split:' - ' as vec_titulos %}
-				{% ifequal vec_titulos.0 'AD2INTL' %}
-				{% for doc in document_list %}
-				{% if doc.document_id == obj.id %}
-				<a href="http://google.com" target="_blank" rel="noopener noreferrer">
-					<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto ">
-						<div class="ver_mas text-center">
-							<span class="lnr lnr-eye"></span>
-							Publicar
-						</div>
-						<article class="text-left">
-							<h2>{{doc}}</h2>
-							<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
-								<button class="btn btn-info" style="margin: 0 5px 10px 0;">{{doc}}</button>
-							</a>
-						</article>
-						<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
-							alt="">
-					</div>
-				</a>
-				{% endif %}
-				{% endfor %}
-
-				{% endifequal%}
-				{% endwith%}
-				{% endfor%}
-			</div>
-		</div>
-
-
-
-		<h2>AD 2 NTL</h2>
-		<div class="container-fluid contenedor text-center">
-			<div class=" container text-center">
-				{% for obj in object_list %}
-				{% with obj.title|split:' - ' as vec_titulos %}
-				{% ifequal vec_titulos.0 'AD2NTL' %}
-				{% for doc in document_list %}
-				{% if doc.document_id == obj.id %}
-				<a href="http://google.com" target="_blank" rel="noopener noreferrer">
-					<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto ">
-						<div class="ver_mas text-center">
-							<span class="lnr lnr-eye"></span>
-							Publicar
-						</div>
-						<article class="text-left">
-							<h2>{{doc}}</h2>
-							<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
-								<button class="btn btn-info" style="margin: 0 5px 10px 0;">{{doc}}</button>
-							</a>
-						</article>
-						<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
-							alt="">
-					</div>
-				</a>
-				{% endif %}
-				{% endfor %}
-
-				{% endifequal%}
-				{% endwith%}
-				{% endfor%}
-			</div>
-		</div>
-
-
-
-
-
-		<br>
-		<br>
-		<br>
-		<br>
-
-		<h1>ENR - EN RUTA</h1>
-		<div class="container-fluid contenedor text-center">
-			<div class=" container text-center">
-				{% for obj in object_list %}
-				{% with obj.title|split:' - ' as vec_titulos %}
-				{% ifequal vec_titulos.0 'ERN' %}
-				{% for doc in document_list %}
-				{% if doc.document_id == obj.id %}
-				<a href="http://google.com" target="_blank" rel="noopener noreferrer">
-					<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto ">
-						<div class="ver_mas text-center">
-							<span class="lnr lnr-eye"></span>
-							Publicar
-						</div>
-						<article class="text-left">
-							<h2>{{doc}}</h2>
-							<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
-								<button class="btn btn-info" style="margin: 0 5px 10px 0;">{{doc}}</button>
-							</a>
-						</article>
-						<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
-							alt="">
-					</div>
-				</a>
-				{% endif %}
-				{% endfor %}
-
-				{% endifequal%}
-				{% endwith%}
-				{% endfor%}
-			</div>
-		</div>
-
-		<br>
-		<br>
-		<br>
-		<br>
-
-		<h1>CIRCULARES</h1>
-		<a href="http://google.com" target="_blank" rel="noopener noreferrer">
-			<div class="container-fluid contenedor text-center">
 				<div class=" container text-center">
 					{% for obj in object_list %}
 					{% with obj.title|split:' - ' as vec_titulos %}
-					{% ifequal vec_titulos.0 'AIC' %}
+					{% ifequal vec_titulos.0 'AD0' %}
 					{% for doc in document_list %}
 					{% if doc.document_id == obj.id %}
-					<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto ">
-						<div class="ver_mas text-center">
-							<span class="lnr lnr-eye"></span>
-							Publicar
-						</div>
-						<article class="text-left">
-							<h2>{{doc}}</h2>
-							<h6>{{obj.description}}</h6>
-							<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
-								<button class="btn btn-info" style="margin: 0 5px 10px 0;">{{doc}}</button>
-							</a>
-						</article>
-						<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
-							alt="">
+					
+					<div>
+						<iframe id="pdf-js-viewer" src="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" title="webviewer" frameborder="0" width="1100" height="800"></iframe>
 					</div>
+
+					{% endif %}
+					{% endfor %}
+
+					{% endifequal%}
+					{% endwith%}
+					{% endfor%}
+				</div>
+
+
+
+			</div>
+
+			<div id="menu1" class="tab-pane fade">
+				<div class=" container text-center">
+					{% for obj in object_list %}
+					{% with obj.title|split:' - ' as vec_titulos %}
+					{% ifequal vec_titulos.0 'AD1' %}
+					{% for doc in document_list %}
+					{% if doc.document_id == obj.id %}
+					<object data='/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}' type="application/pdf"
+						width="500" height="678">
+						<iframe src='/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}' width="100%"
+							height="678">
+							<p>This browser does not support PDF!</p>
+						</iframe>
+					</object>
+
 					{% endif %}
 					{% endfor %}
 
@@ -404,65 +245,338 @@
 					{% endfor%}
 				</div>
 			</div>
-		</a>
-		<br>
-		<br>
-		<br>
-		<br>
-		<h1>ENMIENDAS</h1>
+			<div id="menu2" class="tab-pane fade">
+				<div class=" container text-center">
+					{% for obj in object_list %}
+					{% with obj.title|split:' - ' as vec_titulos %}
+					{% ifequal vec_titulos.0 'AD1' %}
+					{% for doc in document_list %}
+					{% if doc.document_id == obj.id %}
+					<object data='/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}' type="application/pdf"
+						width="500" height="678">
+						<iframe src='/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}' width="100%"
+							height="678">
+							<p>This browser does not support PDF!</p>
+						</iframe>
+					</object>
+
+					{% endif %}
+					{% endfor %}
+
+					{% endifequal%}
+					{% endwith%}
+					{% endfor%}
+				</div>
+			</div>
+			<div id="menu3" class="tab-pane fade">
+				<h3>Menu 3</h3>
+				<div class=" container text-center">
+					{% for obj in object_list %}
+					{% with obj.title|split:' - ' as vec_titulos %}
+					{% ifequal vec_titulos.0 'AD0' %}
+					{% for doc in document_list %}
+					{% if doc.document_id == obj.id %}
+					<object data='/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}' type="application/pdf"
+						width="500" height="678">
+						<iframe src='/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}' width="100%"
+							height="678">
+							<p>This browser does not support PDF!</p>
+						</iframe>
+					</object>
+
+					{% endif %}
+					{% endfor %}
+
+					{% endifequal%}
+					{% endwith%}
+					{% endfor%}
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+	<h2>AD 0</h2>
+	<div class="container-fluid contenedor text-center">
+		<div class=" container text-center">
+			{% for obj in object_list %}
+			{% with obj.title|split:' - ' as vec_titulos %}
+			{% ifequal vec_titulos.0 'AD0' %}
+			{% for doc in document_list %}
+			{% if doc.document_id == obj.id %}
+			<a href="http://google.com" target="_blank" rel="noopener noreferrer">
+				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto ">
+					<div class="ver_mas text-center">
+						<span class="lnr lnr-eye"></span>
+						Publicar
+					</div>
+					<article class="text-left">
+						<h2>{{doc}}</h2>
+						<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
+							<button class="btn btn-info" style="margin: 0 5px 10px 0;">{{doc}}</button>
+						</a>
+					</article>
+					<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
+						alt="">
+				</div>
+			</a>
+			{% endif %}
+			{% endfor %}
+
+			{% endifequal%}
+			{% endwith%}
+			{% endfor%}
+		</div>
+	</div>
+
+
+
+	<h2>AD 1</h2>
+	<div class="container-fluid contenedor text-center">
+		<div class=" container text-center">
+			{% for obj in object_list %}
+			{% with obj.title|split:' - ' as vec_titulos %}
+			{% ifequal vec_titulos.0 'AD1' %}
+			{% for doc in document_list %}
+			{% if doc.document_id == obj.id %}
+			<a href="http://google.com" target="_blank" rel="noopener noreferrer">
+				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto ">
+					<div class="ver_mas text-center">
+						<span class="lnr lnr-eye"></span>
+						Publicar
+					</div>
+					<article class="text-left">
+						<h2>{{doc}}</h2>
+						<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
+							<button class="btn btn-info" style="margin: 0 5px 10px 0;">{{doc}}</button>
+						</a>
+					</article>
+					<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
+						alt="">
+				</div>
+			</a>
+
+			{% endif %}
+			{% endfor %}
+
+			{% endifequal%}
+			{% endwith%}
+			{% endfor%}
+		</div>
+	</div>
+
+
+	<h2>AD 2 INTL</h2>
+	<div class="container-fluid contenedor text-center">
+		<div class=" container text-center">
+			{% for obj in object_list %}
+			{% with obj.title|split:' - ' as vec_titulos %}
+			{% ifequal vec_titulos.0 'AD2INTL' %}
+			{% for doc in document_list %}
+			{% if doc.document_id == obj.id %}
+			<a href="http://google.com" target="_blank" rel="noopener noreferrer">
+				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto ">
+					<div class="ver_mas text-center">
+						<span class="lnr lnr-eye"></span>
+						Publicar
+					</div>
+					<article class="text-left">
+						<h2>{{doc}}</h2>
+						<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
+							<button class="btn btn-info" style="margin: 0 5px 10px 0;">{{doc}}</button>
+						</a>
+					</article>
+					<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
+						alt="">
+				</div>
+			</a>
+			{% endif %}
+			{% endfor %}
+
+			{% endifequal%}
+			{% endwith%}
+			{% endfor%}
+		</div>
+	</div>
+
+
+
+	<h2>AD 2 NTL</h2>
+	<div class="container-fluid contenedor text-center">
+		<div class=" container text-center">
+			{% for obj in object_list %}
+			{% with obj.title|split:' - ' as vec_titulos %}
+			{% ifequal vec_titulos.0 'AD2NTL' %}
+			{% for doc in document_list %}
+			{% if doc.document_id == obj.id %}
+			<a href="http://google.com" target="_blank" rel="noopener noreferrer">
+				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto ">
+					<div class="ver_mas text-center">
+						<span class="lnr lnr-eye"></span>
+						Publicar
+					</div>
+					<article class="text-left">
+						<h2>{{doc}}</h2>
+						<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
+							<button class="btn btn-info" style="margin: 0 5px 10px 0;">{{doc}}</button>
+						</a>
+					</article>
+					<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
+						alt="">
+				</div>
+			</a>
+			{% endif %}
+			{% endfor %}
+
+			{% endifequal%}
+			{% endwith%}
+			{% endfor%}
+		</div>
+	</div>
+
+
+
+
+
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<h1>ENR - EN RUTA</h1>
+	<div class="container-fluid contenedor text-center">
+		<div class=" container text-center">
+			{% for obj in object_list %}
+			{% with obj.title|split:' - ' as vec_titulos %}
+			{% ifequal vec_titulos.0 'ERN' %}
+			{% for doc in document_list %}
+			{% if doc.document_id == obj.id %}
+			<a href="http://google.com" target="_blank" rel="noopener noreferrer">
+				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto ">
+					<div class="ver_mas text-center">
+						<span class="lnr lnr-eye"></span>
+						Publicar
+					</div>
+					<article class="text-left">
+						<h2>{{doc}}</h2>
+						<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
+							<button class="btn btn-info" style="margin: 0 5px 10px 0;">{{doc}}</button>
+						</a>
+					</article>
+					<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
+						alt="">
+				</div>
+			</a>
+			{% endif %}
+			{% endfor %}
+
+			{% endifequal%}
+			{% endwith%}
+			{% endfor%}
+		</div>
+	</div>
+
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<h1>CIRCULARES</h1>
+	<a href="http://google.com" target="_blank" rel="noopener noreferrer">
 		<div class="container-fluid contenedor text-center">
 			<div class=" container text-center">
-
 				{% for obj in object_list %}
 				{% with obj.title|split:' - ' as vec_titulos %}
-				{% ifequal vec_titulos.0 'AMDT' %}
-				<a href="http://google.com" target="_blank" rel="noopener noreferrer">
-					<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto ">
-						<div class="ver_mas text-center">
-							<span class="lnr lnr-eye"></span>
-							Publicar
-						</div>
-						<article class="text-left">
-							<h2>{{vec_titulos.1}}</h2>
-							<h6>{{obj.description}}</h6>
-							{% for doc in document_list %}
-							{% if doc.document_id == obj.id %}
-							<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
-								<button class="btn btn-info" style="margin: 0 5px 10px 0;">{{doc}}</button>
-							</a>
-							{% endif %}
-							{% endfor %}
-						</article>
-						<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
-							alt="">
+				{% ifequal vec_titulos.0 'AIC' %}
+				{% for doc in document_list %}
+				{% if doc.document_id == obj.id %}
+				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto ">
+					<div class="ver_mas text-center">
+						<span class="lnr lnr-eye"></span>
+						Publicar
 					</div>
-				</a>
+					<article class="text-left">
+						<h2>{{doc}}</h2>
+						<h6>{{obj.description}}</h6>
+						<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
+							<button class="btn btn-info" style="margin: 0 5px 10px 0;">{{doc}}</button>
+						</a>
+					</article>
+					<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
+						alt="">
+				</div>
+				{% endif %}
+				{% endfor %}
+
 				{% endifequal%}
 				{% endwith%}
 				{% endfor%}
 			</div>
 		</div>
+	</a>
+	<br>
+	<br>
+	<br>
+	<br>
+	<h1>ENMIENDAS</h1>
+	<div class="container-fluid contenedor text-center">
+		<div class=" container text-center">
 
-
-
-
-
-		{% for obj in object_list %}
-		<div class="row row-0-gutter">
-			<div class="col-md-8 col-md-offset-2 col-0-gutter">
-				<h2><strong>{{ obj.title }}</strong></h2>
-				<p>{{ obj.description }}</p>
-				{% for doc in document_list %}
-				{% if doc.document_id == obj.id %}
-				<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
-					<button class="btn btn-info" style="margin: 0 5px 10px 0;">{{doc}}</button>
-				</a>
-				{% endif %}
-				{% endfor %}
-				<hr>
-			</div>
+			{% for obj in object_list %}
+			{% with obj.title|split:' - ' as vec_titulos %}
+			{% ifequal vec_titulos.0 'AMDT' %}
+			<a href="http://google.com" target="_blank" rel="noopener noreferrer">
+				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto ">
+					<div class="ver_mas text-center">
+						<span class="lnr lnr-eye"></span>
+						Publicar
+					</div>
+					<article class="text-left">
+						<h2>{{vec_titulos.1}}</h2>
+						<h6>{{obj.description}}</h6>
+						{% for doc in document_list %}
+						{% if doc.document_id == obj.id %}
+						<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
+							<button class="btn btn-info" style="margin: 0 5px 10px 0;">{{doc}}</button>
+						</a>
+						{% endif %}
+						{% endfor %}
+					</article>
+					<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
+						alt="">
+				</div>
+			</a>
+			{% endifequal%}
+			{% endwith%}
+			{% endfor%}
 		</div>
-		{% endfor %}
+	</div>
+
+
+
+
+
+	{% for obj in object_list %}
+	<div class="row row-0-gutter">
+		<div class="col-md-8 col-md-offset-2 col-0-gutter">
+			<h2><strong>{{ obj.title }}</strong></h2>
+			<p>{{ obj.description }}</p>
+			{% for doc in document_list %}
+			{% if doc.document_id == obj.id %}
+			<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
+				<button class="btn btn-info" style="margin: 0 5px 10px 0;">{{doc}}</button>
+			</a>
+			{% endif %}
+			{% endfor %}
+			<hr>
+		</div>
+	</div>
+	{% endfor %}
 
 	</div>
 </section>
@@ -491,7 +605,4 @@
 {% endblock content %}
 
 {% block JS %}
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-
-<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
 {% endblock JS %}

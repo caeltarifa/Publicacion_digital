@@ -26,6 +26,9 @@ INSTALLED_APPS = [
     # created apps
     'documents',
     'users',
+
+    #cabeceras
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -36,7 +39,20 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
+    #corsheaders
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
 ]
+""" 
+CORS_ALLOWED_ORIGINS = [
+    "https://example.com",
+    "https://sub.example.com",
+    "http://localhost:8000",
+    "http://127.0.0.1:8000",
+] """
+CORS_ALLOW_ALL_ORIGINS = True
+
 
 ROOT_URLCONF = 'document_viewer.urls'
 
@@ -110,6 +126,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
+
 # domain of CDN where the documents will be uploaded
 CDN_DOMAIN = "http://127.0.0.1:8000"
 
@@ -128,3 +145,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_URL ='/users/login/'
 LOGIN_REDIRECT_URL = '/'
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+X_FRAME_OPTIONS = 'ALLOW-FROM http://127.0.0.1:8000'
