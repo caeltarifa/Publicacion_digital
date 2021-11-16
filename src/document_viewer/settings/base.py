@@ -27,8 +27,6 @@ INSTALLED_APPS = [
     'documents',
     'users',
 
-    #cabeceras
-    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -40,9 +38,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     
-    #corsheaders
-    "corsheaders.middleware.CorsMiddleware",
-    "django.middleware.common.CommonMiddleware",
 ]
 """ 
 CORS_ALLOWED_ORIGINS = [
