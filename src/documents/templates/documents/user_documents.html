@@ -24,7 +24,7 @@
 							{% for doc in document_list %}
 							{% if doc.document_id == obj.id %}
 							<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
-								<button class="btn btn-info" style="margin: 0 5px 10px 0;">{{doc}}</button>
+								<button class="btn btn-info btn-lg" style="margin: 0 5px 10px 0;"> <span class="glyphicon glyphicon-book"></span> {{doc}}</button>
 							</a>
 							{% endif %}
 							{% endfor %}
@@ -32,7 +32,8 @@
 							{% if request.user.is_authenticated %}
 							{% if obj.uploaded_by == request.user %}
 							<a href="{% url 'documents:delete' pk=obj.pk %}">
-								<button class="btn btn-danger">Eliminar documento</button>
+								<button class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i> Eliminar</button>
+								
 							</a>
 							{% endif %}
 							{% endif %}

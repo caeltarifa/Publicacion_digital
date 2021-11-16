@@ -65,7 +65,6 @@ def add_documents(request):
         return redirect("/")
     return render(request, template_name, context)
 
-from django.views.decorators.clickjacking import xframe_options_sameorigin
 from django.views.decorators.clickjacking import xframe_options_exempt
 
 
@@ -83,14 +82,11 @@ def display_documents(request):
     # domain of CDN where the documents will be uploaded
     cdn = CDN_DOMAIN
 
-    print("hola cael")
-
     context = {"object_list": queryset1, "document_list": queryset2, "cdn": cdn}
     return render(request, template_name, context)
 
 
 @login_required()
-@xframe_options_exempt
 def user_documents(request):
     template_name = "documents/user_documents.html"
 
@@ -108,7 +104,6 @@ def user_documents(request):
 
 
 @login_required()
-@xframe_options_exempt
 def delete_document(request, pk):
     # querying Document table from db to get single row and deleting it
     instance1 = get_object_or_404(Document, pk=pk).delete()
