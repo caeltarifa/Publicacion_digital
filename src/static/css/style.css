@@ -60,7 +60,7 @@ a.active {
 
 ::selection {
   text-shadow: none;
-  background: #fed136;
+  background: #fcf6e1;
 }
 
 @media (min-width: 768px) {

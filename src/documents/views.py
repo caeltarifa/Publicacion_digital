@@ -6,6 +6,9 @@ from document_viewer.settings import CDN_DOMAIN
 from .models import Document, DocumentUpload
 from .forms import AddDocument
 
+from django.http import JsonResponse
+import itertools
+
 # comentarios
 #   parte 1
 #       trabajando 1
@@ -113,4 +116,19 @@ def delete_document(request, pk):
     return redirect("documents:user_doc")
 
 
-##hola como estas
+@login_required()
+def get_document(request, pk):
+    # querying Document table from db to get single row and deleting it
+    instance1 = get_object_or_404(DocumentUpload, pk=pk)
+    instance2 = DocumentUpload.objects.filter(document_id=pk)[0]
+    instance2 = serializar_DocumentUpload(instance2)
+
+    messages.success(request, "successfully get document")
+    return JsonResponse(data={'document': instance2}, safe=False, json_dumps_params={'indent': 1})
+    #return redirect("documents:user_doc")
+def serializar_DocumentUpload(document):
+    return {
+        'document_id':document.document_id,
+        'name': document.name,
+        'document_url':'media/'+str(document.document_url),
+    }
