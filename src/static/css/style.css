@@ -52,7 +52,7 @@ a, a:hover, a:focus, a:active, a.active {
 
 ::selection {
     text-shadow: none;
-    background: #fed136;
+    background: #fcf6e1;
 }
 
 @media (min-width: 768px) {
@@ -149,7 +149,7 @@ section {
 		font-size: 2em;
 		-webkit-transition:all .3s;
 		-moz-transition:all .3s;
-		transition:all .3s
+		transition:all .3s;
         padding: 0px;
 	}
 	.navbar-default .navbar-nav>.active>a {
