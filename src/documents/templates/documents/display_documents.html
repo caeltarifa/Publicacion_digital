@@ -5,11 +5,13 @@
 
 
 {% block CSS %}
-	<link href="{% static 'css/style_display_documents.css' %}" rel="stylesheet">
+<link href="{% static 'css/style_display_documents.css' %}" rel="stylesheet">
 {% endblock CSS %}
 
 
 {% block content %}
+
+
 
 <section>
 	<div class="container">
@@ -17,12 +19,339 @@
 		<div class="row">
 			<div class="col-lg-12 text-center">
 				<div class="section-title">
-					<h2>Unidad Nacional de Navegación Aérea</h2>
+					<h2>Publicación de Información Aeronáutica</h2>
 					<h3>Servicio Nacional de Información Aeronáutica</h3>
 				</div>
 			</div>
 		</div>
 
+
+
+
+
+		<ul class="nav nav-tabs">
+			<li class="active">
+				<a data-toggle="tab" href="#menu0">PUBLICACION AERONAUTICA</a>
+			</li>
+			{% if user.is_staff %}
+			<li>
+				<a data-toggle="tab" href="#menu1">ADMINISTRADOR</a>
+			</li>
+			{% endif %}
+
+		</ul>
+
+		<div class="tab-content">
+
+			<div id="menu0" class="tab-pane fade in active">
+				<div class="container-fluid">
+					<div class="row row-no-gutters">
+						<div class="col-lg-6">
+							<h1>RECIENTES </h1>
+
+							<div class="container-fluid">
+								<a href="{% url 'documents:view' %}" rel="noopener noreferrer">
+									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto ">
+										<div class="ver_mas text-center">
+											<span class="lnr lnr-eye"></span>
+											<button class="btn btn-info"
+												style="margin: 0 5px 10px 0; width: 100%; height: 100%;">{doc}}</button>
+										</div>
+										<article class="text-left">
+											<h2>AMDT</h2>
+
+										</article>
+										<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
+											alt="">
+									</div>
+								</a>
+
+								<a href="{% url 'documents:view' %}" rel="noopener noreferrer">
+									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto ">
+										<div class="ver_mas text-center">
+											<span class="lnr lnr-eye"></span>
+											<button class="btn btn-info"
+												style="margin: 0 5px 10px 0; width: 100%; height: 100%;">{doc}}</button>
+										</div>
+										<article class="text-left">
+											<h2>SUP</h2>
+
+										</article>
+										<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
+											alt="">
+									</div>
+								</a>
+
+							</div>
+							<div class="container">
+								<h2>Modal Example</h2>
+								<!-- Trigger the modal with a button -->
+								<button type="button" class="btn btn-info btn-lg" data-toggle="modal"
+									data-target="#myModal">Open Modal</button>
+
+								<!-- Modal -->
+								<div class="modal fade" id="myModal" role="dialog">
+									<div class="modal-dialog">
+
+										<!-- Modal content-->
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close"
+													data-dismiss="modal">&times;</button>
+												<h4 class="modal-title">Modal Header</h4>
+											</div>
+											<div class="modal-body">
+												<p>Some text in the modal.</p>
+
+												<div class=" container ">
+													<object
+														data='/viewerjs/index.html#http://127.0.0.1:8000/media/GEN_1.pdf'
+														type="application/pdf" width="500" height="678">
+														<iframe
+															src='/viewerjs/index.html#http://127.0.0.1:8000/media/GEN_1.pdf'
+															width="100%" height="678">
+															<p>This browser does not support PDF!</p>
+														</iframe>
+													</object>
+												</div>
+
+
+
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-default"
+													data-dismiss="modal">Close</button>
+											</div>
+										</div>
+
+									</div>
+								</div>
+
+							</div>
+
+
+
+						</div>
+
+
+						<div class="col-lg-6" style="border-left: 1px solid #e2e2e2;">
+							<h1>AIP DIGITAL</h1>
+
+							<div class="container-fluid">
+
+								<a href="{% url 'documents:view' %}" rel="noopener noreferrer">
+									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto ">
+										<div class="ver_mas text-center">
+											<span class="lnr lnr-eye"></span>
+											<button class="btn btn-info"
+												style="margin: 0 5px 10px 0; width: 100%; height: 100%;">{doc}}</button>
+										</div>
+										<article class="text-left">
+											<h2>GEN</h2>
+
+										</article>
+										<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
+											alt="">
+									</div>
+								</a>
+
+								<a href="{% url 'documents:view' %}" rel="noopener noreferrer">
+									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto ">
+										<div class="ver_mas text-center">
+											<span class="lnr lnr-eye"></span>
+											<button class="btn btn-info"
+												style="margin: 0 5px 10px 0; width: 100%; height: 100%;">{doc}}</button>
+										</div>
+										<article class="text-left">
+											<h2>AD</h2>
+
+										</article>
+										<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
+											alt="">
+									</div>
+								</a>
+
+
+								<a href="{% url 'documents:view' %}" rel="noopener noreferrer">
+									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto ">
+										<div class="ver_mas text-center">
+											<span class="lnr lnr-eye"></span>
+											<button class="btn btn-info"
+												style="margin: 0 5px 10px 0; width: 100%; height: 100%;">{doc}}</button>
+										</div>
+										<article class="text-left">
+											<h2>ENR</h2>
+
+										</article>
+										<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
+											alt="">
+									</div>
+								</a>
+
+								<a href="{% url 'documents:view' %}" rel="noopener noreferrer">
+									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto ">
+										<div class="ver_mas text-center">
+											<span class="lnr lnr-eye"></span>
+											<button class="btn btn-info"
+												style="margin: 0 5px 10px 0; width: 100%; height: 100%;">{doc}}</button>
+										</div>
+										<article class="text-left">
+											<h2>SUP</h2>
+
+										</article>
+										<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
+											alt="">
+									</div>
+								</a>
+
+								<a href="{% url 'documents:view' %}" rel="noopener noreferrer">
+									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto ">
+										<div class="ver_mas text-center">
+											<span class="lnr lnr-eye"></span>
+											<button class="btn btn-info"
+												style="margin: 0 5px 10px 0; width: 100%; height: 100%;">{doc}}</button>
+										</div>
+										<article class="text-left">
+											<h2>AIC</h2>
+
+										</article>
+										<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
+											alt="">
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			{% if user.is_staff %}
+			<div id="menu1" class="tab-pane fade">
+
+				<div class="container-fluid">
+					<div class="row row-no-gutters">
+						<div class="col-lg-6">
+							<h1>GESTION DE DOCUMENTOS</h1>
+
+							<div class="container-fluid">
+
+								<a href="{% url 'documents:add' %}" rel="noopener noreferrer">
+									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto ">
+										<div class="ver_mas text-center">
+											<span class="lnr lnr-eye"></span>
+											<button class="btn btn-info"
+												style="margin: 0 5px 10px 0; width: 100%; height: 100%;">{doc}}</button>
+										</div>
+										<article class="text-left">
+											<h2>AGREGAR</h2>
+
+										</article>
+										<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
+											alt="">
+									</div>
+								</a>
+
+								<a href="{% url 'documents:user_doc' %}" rel="noopener noreferrer">
+									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto ">
+										<div class="ver_mas text-center">
+											<span class="lnr lnr-eye"></span>
+											<button class="btn btn-info"
+												style="margin: 0 5px 10px 0; width: 100%; height: 100%;">{doc}}</button>
+										</div>
+										<article class="text-left">
+											<h2>EDITAR</h2>
+
+										</article>
+										<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
+											alt="">
+									</div>
+								</a>
+
+
+							</div>
+
+
+						</div>
+
+
+						<div class="col-lg-6" style="border-left: 1px solid #e2e2e2;">
+							<h1>GESTION DE USUARIOS</h1>
+
+							<div class="container-fluid">
+
+								<a href="{% url 'display_users' %}" rel="noopener noreferrer">
+									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto ">
+										<div class="ver_mas text-center">
+											<span class="lnr lnr-eye"></span>
+											<button class="btn btn-info"
+												style="margin: 0 5px 10px 0; width: 100%; height: 100%;">{doc}}</button>
+										</div>
+										<article class="text-left">
+											<h2 style="font-size:27px">USUARIOS</h2>
+
+										</article>
+										<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
+											alt="">
+									</div>
+								</a>
+
+								<a href="{% url 'register' %}" rel="noopener noreferrer">
+									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto ">
+										<div class="ver_mas text-center">
+											<span class="lnr lnr-eye"></span>
+											<button class="btn btn-info"
+												style="margin: 0 5px 10px 0; width: 100%; height: 100%;">{doc}}</button>
+										</div>
+										<article class="text-left">
+											<h2>NUEVO</h2>
+
+										</article>
+										<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
+											alt="">
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			{% endif %}
+
+		</div>
+
+
+
+
+
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
 
 		<h1>GENERALIDADES</h1>
 		<div class="container-fluid contenedor text-center">
@@ -100,9 +429,10 @@
 					{% ifequal vec_titulos.0 'AD0' %}
 					{% for doc in document_list %}
 					{% if doc.document_id == obj.id %}
-					
+
 					<div>
-						<iframe id="pdf-js-viewer" src="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" title="webviewer" frameborder="0" width="1100" height="800"></iframe>
+						<iframe id="pdf-js-viewer" src="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}"
+							title="webviewer" frameborder="0" width="1100" height="800"></iframe>
 					</div>
 
 					{% endif %}

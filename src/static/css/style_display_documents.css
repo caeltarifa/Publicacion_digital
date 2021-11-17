@@ -3,7 +3,7 @@
 	padding: 0;
 	overflow: hidden;
 	max-width: 200px;
-	margin: 5px;
+	margin: 15px;
 }
 
 .container_foto article {
@@ -21,7 +21,7 @@
 .container_foto h2 {
 	color: #fff;
 	font-weight: 800;
-	font-size: 25px;
+	font-size: 30px;
 	border-bottom: #fff solid 1px;
 }
 
