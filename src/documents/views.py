@@ -68,6 +68,7 @@ def add_documents(request):
         return redirect("/")
     return render(request, template_name, context)
 
+
 from django.views.decorators.clickjacking import xframe_options_exempt
 
 
@@ -124,11 +125,15 @@ def get_document(request, pk):
     instance2 = serializar_DocumentUpload(instance2)
 
     messages.success(request, "successfully get document")
-    return JsonResponse(data={'document': instance2}, safe=False, json_dumps_params={'indent': 1})
-    #return redirect("documents:user_doc")
+    return JsonResponse(
+        data={"document": instance2}, safe=False, json_dumps_params={"indent": 1}
+    )
+    # return redirect("documents:user_doc")
+
+
 def serializar_DocumentUpload(document):
     return {
-        'document_id':document.document_id,
-        'name': document.name,
-        'document_url':'media/'+str(document.document_url),
+        "document_id": document.document_id,
+        "name": document.name,
+        "document_url": "media/" + str(document.document_url),
     }
