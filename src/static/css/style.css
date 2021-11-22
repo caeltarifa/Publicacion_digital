@@ -77,10 +77,10 @@ section {
 1.1 Reset bootstrap
 --------------------*/
 
-.row-0-gutter {
+/* .row-0-gutter {
   margin-left: -13px;
   margin-right: -13px;
-}
+} */
 
 .col-0-gutter {
   padding-left: 0;
