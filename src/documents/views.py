@@ -120,8 +120,8 @@ def delete_document(request, pk):
 @login_required()
 def get_document(request, pk):
     # querying Document table from db to get single row and deleting it
-    instance1 = get_object_or_404(DocumentUpload, pk=pk)
-    instance2 = DocumentUpload.objects.filter(document_id=pk)[0]
+    instance1 = get_object_or_404(DocumentUpload, id=pk)
+    instance2 = DocumentUpload.objects.get(id=pk)
     instance2 = serializar_DocumentUpload(instance2)
 
     messages.success(request, "successfully get document")
