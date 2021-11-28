@@ -24,6 +24,12 @@
   font-size: 30px;
   border-bottom: #fff solid 1px;
 }
+.container_foto h4 {
+  color: #fff;
+  font-weight: 800;
+  font-size: 15px;
+  border-bottom: #fff solid 1px;
+}
 
 .container_foto h6 {
   font-weight: 300;

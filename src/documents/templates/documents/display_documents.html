@@ -58,7 +58,6 @@
 										</div>
 										<article class="text-left">
 											<h2>AMDT</h2>
-
 										</article>
 										<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
 											alt="">
@@ -119,14 +118,9 @@
 													data-dismiss="modal">Close</button>
 											</div>
 										</div>
-
 									</div>
 								</div>
-
 							</div>
-
-
-
 						</div>
 
 
@@ -144,52 +138,54 @@
 										</div>
 										<article class="text-left">
 											<h2>GEN</h2>
-
 										</article>
 										<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
 											alt="">
-											<div class="modal fade" id="ModalGEN" role="dialog">
-												<div class="modal-dialog">
-													<!-- Modal content-->
-													<div class="modal-content">
-														<div class="modal-header">
-															<button type="button" class="close"
-																data-dismiss="modal">&times;</button>
-															<h4 class="modal-title">GENERALIDADES</h4>
-														</div>
-														<div class="modal-body">
-		
-																	{% for obj in object_list %}
-																	{% with obj.title|split:' - ' as vec_titulos %}
-																	{% ifequal vec_titulos.0 'GEN' %}
-																	{% for doc in document_list %}
-																	{% if doc.document_id == obj.id %}
-																	<a href="http://google.com" target="_blank" rel="noopener noreferrer">
-																		<div class="col-lg-6 col-md-6 col-sm-8 col-xs-12 container_foto ">
-																			<article class="text-left">
-																				<h2>{{doc}}</h2>
-																				<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
-																					<button class="btn btn-info" style="margin: 0 5px 10px 0;">{{doc}}</button>
-																				</a>
-																			</article>
-																			<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
-																				alt="">
-																		</div>
+											<!-- FIN MODEL CONTENT -->
+										</div>
+									</a>
+									<div class="modal fade" id="ModalGEN" role="dialog">
+										<div class="modal-dialog">
+											<!-- Modal content-->
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close"
+														data-dismiss="modal">&times;</button>
+													<h3 class="modal-title">GENERALIDADES</h3>
+												</div>
+												<div class="modal-body">
+
+															{% for obj in object_list %}
+															{% with obj.title|split:' - ' as vec_titulos %}
+															{% ifequal vec_titulos.0 'GEN' %}
+															{% for doc in document_list %}
+															{% if doc.document_id == obj.id %}
+															<a href="http://google.com" target="_blank" rel="noopener noreferrer">
+																<div class="col-lg-6 col-md-6 col-sm-8 col-xs-12 container_foto ">
+																	<div class="ver_mas text-center">
+																	<span class="lnr lnr-eye"></span>
+																	<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
+																		<button class="btn btn-info" style="margin: 0 5px 10px 0; width: 100%; height: 100%;">{{doc}}</button>
 																	</a>
-																	{% endif %}
-																	{% endfor %}
-																	{% endifequal%}
-																	{% endwith%}
-																	{% endfor%}
-														</div>
-														<div class="modal-footer">
-														</div>
-													</div>
+																	</div>
+																	<article class="text-left">
+																		<h4>{{vec_titulos.0}}</h4>
+																	</article>
+																	<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
+																		alt="">
+																</div>
+															</a>
+															{% endif %}
+															{% endfor %}
+															{% endifequal%}
+															{% endwith%}
+															{% endfor%}
+												</div>
+												<div class="modal-footer">
 												</div>
 											</div>
-											<!-- FIN MODEL CONTENT -->
+										</div>
 									</div>
-								</a>
 
 								<a  rel="noopener noreferrer">
 									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto ">
@@ -204,98 +200,123 @@
 										<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
 											alt="">
 									</div>
-									<div class="modal fade" id="ModalAD" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-										<div class="modal-dialog modal-lg">
-										  <div class="modal-content">
-											<div class="modal-header">
-															<button type="button" class="close" onclick="document.getElementById('ad2intl').style.display='none'; document.getElementById('ad2ntl').style.display='none'"
-																data-dismiss="modal">&times;</button>
-															<h4 class="modal-title">AERODROMOS</h4>
-														</div>
-														<div class="modal-body">
-																<div class="row col-md-12">
-																	<div class="col-md-3">
-																		<h5>AD0</h5>
-																		{% for obj in object_list %}
-																		{% with obj.title|split:' - ' as vec_titulos %}
-																		{% ifequal vec_titulos.0 'AD0' %}
-																		{% for doc in document_list %}
-																		{% if doc.document_id == obj.id %}
-																		<a href="http://google.com" target="_blank" rel="noopener noreferrer">
-																			<div class="col-md-10 container_foto ">
-																				<article class="text-left">
-																					<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
-																						<button class="btn btn-info" style="margin: 0 5px 10px 0;">{{doc}}</button>
-																					</a>
-																				</article>
-																				<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
-																					alt="">
+								</a>
+								<div class="modal fade" id="ModalAD" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+									<div class="modal-dialog modal-lg">
+									  <div class="modal-content">
+										<div class="modal-header">
+												<button type="button" class="close" onclick="document.getElementById('ad2intl').style.display='none'; document.getElementById('ad2ntl').style.display='none'"
+													data-dismiss="modal">&times;</button>
+													<h3 class="modal-title">AERODROMOS</h3>
+													</div>
+													<div class="modal-body">
+															<div class="row col-md-12">
+																<div class="col-md-3">
+																	<h5>AD0</h5>
+																	{% for obj in object_list %}
+																	{% with obj.title|split:' - ' as vec_titulos %}
+																	{% ifequal vec_titulos.0 'AD0' %}
+																	{% for doc in document_list %}
+																	{% if doc.document_id == obj.id %}
+																	<a href="http://google.com" target="_blank" rel="noopener noreferrer">
+																		<div class="col-md-12 container_foto ">
+																			<div class="ver_mas text-center">
+																			<span class="lnr lnr-eye"></span>
+																			<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
+																				<button class="btn btn-info" style="margin: 0 5px 10px 0; width: 100%; height: 100%;">{{doc}}</button>
+																			</a>
 																			</div>
-																		</a>
-																		{% endif %}
-																		{% endfor %}
-																		{% endifequal%}
-																		{% endwith%}
-																		{% endfor%}
-																	</div>
-																	<div class="col-md-3">
-																		<h5>AD1</h5>
-																		{% for obj in object_list %}
-																		{% with obj.title|split:' - ' as vec_titulos %}
-																		{% ifequal vec_titulos.0 'AD1' %}
-																		{% for doc in document_list %}
-																		{% if doc.document_id == obj.id %}
-																		<a href="" target="_blank" rel="noopener noreferrer">
-																			<div class="col-md-10 container_foto ">
-																				<article class="text-center">
-																					<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
-																						<button class="btn btn-info">{{doc}}</button>
-																					</a>
-																				</article>
-																				<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg" class="img-fluid"
-																					alt="">
+																			<article class="text-center">
+																				<h4>{{doc}}</h4>
+																			</article>
+																			<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
+																				alt="">
+																		</div>
+																	</a>
+																	{% endif %}
+																	{% endfor %}
+																	{% endifequal%}
+																	{% endwith%}
+																	{% endfor%}
+																</div>
+																<div class="col-md-3">
+																	<h5>AD1</h5>
+																	{% for obj in object_list %}
+																	{% with obj.title|split:' - ' as vec_titulos %}
+																	{% ifequal vec_titulos.0 'AD1' %}
+																	{% for doc in document_list %}
+																	{% if doc.document_id == obj.id %}
+																	<a href="" target="_blank" rel="noopener noreferrer">
+																		<div class="col-md-12 container_foto ">
+																			<div class="ver_mas text-center">
+																			<span class="lnr lnr-eye"></span>
+																			<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
+																				<button class="btn btn-info" style="margin: 0 5px 10px 0; width: 100%; height: 100%;">{{doc}}</button>
+																			</a>
+																		</div>
+																		<article class="text-center">
+																			<h4>{{doc}}</h4>
+																		</article>
+																			<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg" class="img-fluid"
+																				alt="">
+																		</div>
+																	</a>
+																	{% endif %}
+																	{% endfor %}
+																	{% endifequal%}
+																	{% endwith%}
+																	{% endfor%}
+																</div>
+																<div class="col-md-3">
+																	<h5>AD2INTL</h5>
+																	<a href="" target="_blank" rel="noopener noreferrer">
+																		<div class="col-md-12 container_foto ">
+																			<div class="ver_mas text-center">
+																			<span class="lnr lnr-eye"></span>
+																			<a href="javascript:;" onclick="document.getElementById('ad2intl').style.display='block'; document.getElementById('ad2ntl').style.display='none';">
+																				<button class="btn btn-info" style="margin: 0 5px 10px 0; width: 100%; height: 100%;">AD2INTL</button>
+																			</a>
 																			</div>
-																		</a>
-																		{% endif %}
-																		{% endfor %}
-																		{% endifequal%}
-																		{% endwith%}
-																		{% endfor%}
-																	</div>
-																	<div class="col-md-3">
-																		<h5>AD2INTL</h5>
-																		<a href="" target="_blank" rel="noopener noreferrer">
-																			<div class="col-md-10 container_foto ">
-																				<article class="text-center">
-																					<a href="javascript:;" onclick="document.getElementById('ad2intl').style.display='block'; document.getElementById('ad2ntl').style.display='none';">
-																						<button class="btn btn-info" >AD2INTL</button>
-																					</a>
-																				</article>
-																				<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg" class="img-fluid"
-																					alt="">
+																			<article class="text-center">
+																				<h4>AD2INTL</h4>
+																		</article>
+																			<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg" class="img-fluid"
+																				alt="">
+																		</div>
+																	</a>
+																</div>
+																<div class="col-md-3">
+																	<h5>AD2NTL</h5>
+																	<a href="" target="_blank" rel="noopener noreferrer">
+																		<div class="col-md-12 container_foto ">
+																			<div class="ver_mas text-center">
+																			<span class="lnr lnr-eye"></span>
+																			<a href="javascript:;" onclick="document.getElementById('ad2ntl').style.display='block';document.getElementById('ad2intl').style.display='none';">
+																				<button class="btn btn-info" style="margin: 0 5px 10px 0; width: 100%; height: 100%;" >AD2NTL</button>
+																			</a>
 																			</div>
-																		</a>
-																	</div>
-																	<div class="col-md-3">
-																		<h5>AD2NTL</h5>
-																		<a href="" target="_blank" rel="noopener noreferrer">
-																			<div class="col-md-10 container_foto ">
-																				<article class="text-center">
-																					<a href="javascript:;" onclick="document.getElementById('ad2ntl').style.display='block';document.getElementById('ad2intl').style.display='none';">
-																						<button class="btn btn-info" >AD2NTL</button>
-																					</a>
-																				</article>
-																				<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg" class="img-fluid"
-																					alt="">
-																			</div>
-																		</a>
-																	</div>
-																	</div>
-																<div class="col-md-12">
-																	<div class="row" id="ad2intl" style="display:none;" >
-																		<h6>LISTA AD2INTL</h6>
-																		<div class="table-responsive">
-																			<table class="table">
+																			<article class="text-center">
+																				<h4>AD2NTL</h4>
+																			</article>
+																			<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg" class="img-fluid"
+																				alt="">
+																		</div>
+																	</a>
+																</div>
+																</div>
+															<div class="row col-md-12">
+																<div class="row" id="ad2intl" style="display:none;" >
+																	<hr>
+																	<h5>LISTA AD2INTL</h5>
+																	<div class="table-responsive">
+																		<table class="table table-striped">
+																			<thead>
+																				<tr>
+																					<td>NOMBRE</td>
+																					<td>VER PDF</td>
+																				</tr>
+																			</thead>
+																			<tbody>
 																				{% for obj in object_list %}
 																				{% with obj.title|split:' - ' as vec_titulos %}
 																				{% ifequal vec_titulos.0 'AD2INTL' %}
@@ -312,17 +333,22 @@
 																				{% endifequal%}
 																				{% endwith%}
 																				{% endfor%}
-																			</table>
-																		</div>
+																			</tbody>
+																		</table>
 																	</div>
-																	<div class="row" id="ad2ntl" style="display:none;" >
-																		<h6>LISTA AD2NTL</h6>
-																		<div class="table-responsive">
-																			<table class="table">
+																</div>
+																<div class="row" id="ad2ntl" style="display:none;" >
+																	<hr>
+																	<h5>LISTA AD2NTL</h5>
+																	<div class="table-responsive">
+																		<table class="table table-striped">
+																			<thead >
 																				<tr>
-																					<td></td>
-																					<td></td>
+																					<td>NOMBRE</td>
+																					<td>VER PDF</td>
 																				</tr>
+																			</thead>
+																			<tbody>
 																				{% for obj in object_list %}
 																				{% with obj.title|split:' - ' as vec_titulos %}
 																				{% ifequal vec_titulos.0 'AD2NTL' %}
@@ -339,67 +365,17 @@
 																				{% endifequal%}
 																				{% endwith%}
 																				{% endfor%}
-																			</table>
-																		</div>
+																			</tbody>
+																		</table>
 																	</div>
 																</div>
-																<!-- <div class="row">
-																	<h5>AD2INTL</h5>
-																	{% for obj in object_list %}
-																	{% with obj.title|split:' - ' as vec_titulos %}
-																	{% ifequal vec_titulos.0 'AD2INTL' %}
-																	{% for doc in document_list %}
-																	{% if doc.document_id == obj.id %}
-																	<a href="http://google.com" target="_blank" rel="noopener noreferrer">
-																		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto ">
-																			<article class="text-left">
-																				<h2>{{doc}}</h2>
-																				<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
-																					<button class="btn btn-info" style="margin: 0 5px 10px 0;">{{doc}}</button>
-																				</a>
-																			</article>
-																			<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
-																				alt="">
-																		</div>
-																	</a>
-																	{% endif %}
-																	{% endfor %}
-																	{% endifequal%}
-																	{% endwith%}
-																	{% endfor%}
-																</div>
-																<div class="row">
-																	<h5>AD2NLT</h5>
-																	{% for obj in object_list %}
-																	{% with obj.title|split:' - ' as vec_titulos %}
-																	{% ifequal vec_titulos.0 'AD2NTL' %}
-																	{% for doc in document_list %}
-																	{% if doc.document_id == obj.id %}
-																	<a href="http://google.com" target="_blank" rel="noopener noreferrer">
-																		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto ">
-																			<article class="text-left">
-																				<h2>{{doc}}</h2>
-																				<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
-																					<button class="btn btn-info" style="margin: 0 5px 10px 0;">{{doc}}</button>
-																				</a>
-																			</article>
-																			<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
-																				alt="">
-																		</div>
-																	</a>
-																	{% endif %}
-																	{% endfor %}
-																	{% endifequal%}
-																	{% endwith%}
-																	{% endfor%}
-																</div> -->
-														</div>
-														<div class="modal-footer">
-														</div>
+															</div>
 													</div>
-											</div>
-									</div>
-								</a>
+													<div class="modal-footer">
+													</div>
+												</div>
+										</div>
+								</div>
 
 
 								<a  rel="noopener noreferrer">
@@ -415,46 +391,49 @@
 										</article>
 										<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
 											alt="">
-											<div class="modal fade" id="ModalENR" role="dialog">
-												<div class="modal-dialog">
-													<!-- Modal content-->
-													<div class="modal-content">
-														<div class="modal-header">
-															<button type="button" class="close"
-																data-dismiss="modal">&times;</button>
-															<h4 class="modal-title">EN RUTA</h4>
-														</div>
-														<div class="modal-body">
-															{% for obj in object_list %}
-															{% with obj.title|split:' - ' as vec_titulos %}
-															{% ifequal vec_titulos.0 'ERN' %}
-															{% for doc in document_list %}
-															{% if doc.document_id == obj.id %}
-															<a href="http://google.com" target="_blank" rel="noopener noreferrer">
-																<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto">
-																	<article class="text-left">
-																		<h2>{{doc}}</h2>
-																		<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
-																			<button class="btn btn-info" style="margin: 0 5px 10px 0;">{{doc}}</button>
-																		</a>
-																	</article>
-																	<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
-																		alt="">
-																</div>
+										</div>
+									</a>
+									<div class="modal fade" id="ModalENR" role="dialog">
+										<div class="modal-dialog">
+											<!-- Modal content-->
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close"
+														data-dismiss="modal">&times;</button>
+													<h3 class="modal-title">EN RUTA</h3>
+												</div>
+												<div class="modal-body">
+													{% for obj in object_list %}
+													{% with obj.title|split:' - ' as vec_titulos %}
+													{% ifequal vec_titulos.0 'ERN' %}
+													{% for doc in document_list %}
+													{% if doc.document_id == obj.id %}
+													<a href="http://google.com" target="_blank" rel="noopener noreferrer">
+														<div class="col-lg-6 col-md-6 col-sm-8 col-xs-12 container_foto ">
+															<div class="ver_mas text-center">
+															<span class="lnr lnr-eye"></span>
+															<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
+																<button class="btn btn-info" style="margin: 0 5px 10px 0; width: 100%; height: 100%;">{{doc}}</button>
 															</a>
-															{% endif %}
-															{% endfor %}
-															{% endifequal%}
-															{% endwith%}
-															{% endfor%}
+															</div>
+															<article class="text-left">
+																<h4>{{doc}}</h4>
+															</article>
+															<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
+																alt="">
 														</div>
-														<div class="modal-footer">
-														</div>
-													</div>
+													</a>
+													{% endif %}
+													{% endfor %}
+													{% endifequal%}
+													{% endwith%}
+													{% endfor%}
+												</div>
+												<div class="modal-footer">
 												</div>
 											</div>
+										</div>
 									</div>
-								</a>
 
 								<a  rel="noopener noreferrer">
 									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto ">
@@ -469,46 +448,49 @@
 										</article>
 										<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
 											alt="">
-											<div class="modal fade" id="ModalSUP" role="dialog">
-												<div class="modal-dialog">
-													<!-- Modal content-->
-													<div class="modal-content">
-														<div class="modal-header">
-															<button type="button" class="close"
-																data-dismiss="modal">&times;</button>
-															<h4 class="modal-title">SUMPLEMENTOS</h4>
-														</div>
-														<div class="modal-body">
-															{% for obj in object_list %}
-															{% with obj.title|split:' - ' as vec_titulos %}
-															{% ifequal vec_titulos.0 'SUP' %}
-															{% for doc in document_list %}
-															{% if doc.document_id == obj.id %}
-															<a href="http://google.com" target="_blank" rel="noopener noreferrer">
-																<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto">
-																	<article class="text-left">
-																		<h2>{{doc}}</h2>
-																		<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
-																			<button class="btn btn-info" style="margin: 0 5px 10px 0;">{{doc}}</button>
-																		</a>
-																	</article>
-																	<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
-																		alt="">
-																</div>
+										</div>
+									</a>
+									<div class="modal fade" id="ModalSUP" role="dialog">
+										<div class="modal-dialog">
+											<!-- Modal content-->
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close"
+														data-dismiss="modal">&times;</button>
+													<h3 class="modal-title">SUMPLEMENTOS</h3>
+												</div>
+												<div class="modal-body">
+													{% for obj in object_list %}
+													{% with obj.title|split:' - ' as vec_titulos %}
+													{% ifequal vec_titulos.0 'SUP' %}
+													{% for doc in document_list %}
+													{% if doc.document_id == obj.id %}
+													<a href="http://google.com" target="_blank" rel="noopener noreferrer">
+														<div class="col-lg-6 col-md-6 col-sm-8 col-xs-12 container_foto ">
+															<div class="ver_mas text-center">
+															<span class="lnr lnr-eye"></span>
+															<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
+																<button class="btn btn-info" style="margin: 0 5px 10px 0; width: 100%; height: 100%;">{{doc}}</button>
 															</a>
-															{% endif %}
-															{% endfor %}
-															{% endifequal%}
-															{% endwith%}
-															{% endfor%}
+															</div>
+															<article class="text-left">
+																<h4>{{doc}}</h4>
+															</article>
+															<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
+																alt="">
 														</div>
-														<div class="modal-footer">
-														</div>
-													</div>
+													</a>
+													{% endif %}
+													{% endfor %}
+													{% endifequal%}
+													{% endwith%}
+													{% endfor%}
+												</div>
+												<div class="modal-footer">
 												</div>
 											</div>
+										</div>
 									</div>
-								</a>
 
 								<a  rel="noopener noreferrer">
 									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto ">
@@ -523,46 +505,49 @@
 										</article>
 										<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
 											alt="">
-											<div class="modal fade" id="ModalAIC" role="dialog">
-												<div class="modal-dialog">
-													<!-- Modal content-->
-													<div class="modal-content">
-														<div class="modal-header">
-															<button type="button" class="close"
-																data-dismiss="modal">&times;</button>
-															<h4 class="modal-title">CIRTULAR DE INFORMACION AERONAUTICA</h4>
-														</div>
-														<div class="modal-body">
-															{% for obj in object_list %}
-															{% with obj.title|split:' - ' as vec_titulos %}
-															{% ifequal vec_titulos.0 'AIC' %}
-															{% for doc in document_list %}
-															{% if doc.document_id == obj.id %}
-															<a href="http://google.com" target="_blank" rel="noopener noreferrer">
-																<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto">
-																	<article class="text-left">
-																		<h2>{{doc}}</h2>
-																		<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
-																			<button class="btn btn-info" style="margin: 0 5px 10px 0;">{{doc}}</button>
-																		</a>
-																	</article>
-																	<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
-																		alt="">
-																</div>
-															</a>
-															{% endif %}
-															{% endfor %}
-															{% endifequal%}
-															{% endwith%}
-															{% endfor%}
-														</div>
-														<div class="modal-footer">
-														</div>
-													</div>
-												</div>
-											</div>
 									</div>
 								</a>
+								<div class="modal fade" id="ModalAIC" role="dialog">
+									<div class="modal-dialog">
+										<!-- Modal content-->
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close"
+													data-dismiss="modal">&times;</button>
+												<h3 class="modal-title">CIRTULAR DE INFORMACION AERONAUTICA</h3>
+											</div>
+											<div class="modal-body">
+												{% for obj in object_list %}
+												{% with obj.title|split:' - ' as vec_titulos %}
+												{% ifequal vec_titulos.0 'AIC' %}
+												{% for doc in document_list %}
+												{% if doc.document_id == obj.id %}
+												<a href="http://google.com" target="_blank" rel="noopener noreferrer">
+													<div class="col-lg-6 col-md-6 col-sm-8 col-xs-12 container_foto ">
+														<div class="ver_mas text-center">
+														<span class="lnr lnr-eye"></span>
+														<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
+															<button class="btn btn-info" style="margin: 0 5px 10px 0; width: 100%; height: 100%;">{{doc}}</button>
+														</a>
+														</div>
+														<article class="text-left">
+															<h4>{{doc}}</h4>
+														</article>
+														<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
+															alt="">
+													</div>
+												</a>
+												{% endif %}
+												{% endfor %}
+												{% endifequal%}
+												{% endwith%}
+												{% endfor%}
+											</div>
+											<div class="modal-footer">
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
