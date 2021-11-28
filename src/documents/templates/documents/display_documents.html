@@ -563,6 +563,23 @@
 							<h1>GESTION DE DOCUMENTOS</h1>
 
 							<div class="container-fluid">
+								<!-- OPCIONAL -->
+								<a href="{% url 'documents:user_doc' %}" rel="noopener noreferrer">
+									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto ">
+										<div class="ver_mas text-center">
+											<span class="lnr lnr-eye"></span>
+											<button class="btn btn-info"
+												style="margin: 0 5px 10px 0; width: 100%; height: 100%;">{doc}}</button>
+										</div>
+										<article class="text-left">
+											<h2>DOCUMENTOS</h2>
+
+										</article>
+										<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
+											alt="">
+									</div>
+								</a>
+								<!-- FIN OPCIONAL -->
 
 								<a href="{% url 'documents:add' %}" rel="noopener noreferrer">
 									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto ">
