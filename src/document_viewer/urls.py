@@ -7,9 +7,13 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.decorators import login_required
 from django.views.static import serve
 
+import logging
 
 @login_required
 def protected_serve(request, path, document_root=None, show_indexes=False):
+    logger = logging.getLogger("mylogger")
+    logging.info("HOLA CAEL CMOO ESTES")
+    print("hola cael en minusulas")
     return serve(request, path, document_root, show_indexes)
 
 app_name = 'documents'
