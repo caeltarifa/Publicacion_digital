@@ -7,13 +7,6 @@ from .utils import unique_slug_generator
 
 User = settings.AUTH_USER_MODEL
 
-class DocumentUpload(models.Model):
-	document_id		= models.IntegerField(default=0)
-	name			= models.CharField(max_length=120, null=True, blank=True)
-	document_url 	= models.FileField(null=True, blank=True)
-
-	def __str__(self):
-		return str(self.document_url)
 
 class Document(models.Model):
 	uploaded_by	= models.ForeignKey(User, on_delete=models.CASCADE,)
@@ -25,6 +18,14 @@ class Document(models.Model):
 
 	def __str__(self):
 		return self.title
+
+class DocumentUpload(models.Model):
+	document_id		= models.ForeignKey(Document, on_delete=models.CASCADE,)
+	name			= models.CharField(max_length=120, null=True, blank=True)
+	document_url 	= models.FileField(null=True, blank=True)
+
+	def __str__(self):
+		return str(self.document_url)
 
 # using pre_save function to generate unique slug before saving it to db
 def document_pre_save_signal(sender, instance, *args, **kwargs):
