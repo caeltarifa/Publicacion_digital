@@ -2,13 +2,18 @@
 {% load static %}
 
 
+{% block CSS %}
+<link href="{% static 'css/style_display_users.css' %}" rel="stylesheet">
+{% endblock CSS %}
+
+
+
 {% block content %}
 
 
+<!-- TABLA DE CONTENIDO  -->
 <section>
 	<div class="container">
-
-	<div class="row">
 		<div class="col-lg-12 text-center">
 			<div class="section-title">
 				<h2>EDITAR AIP</h2>
@@ -17,75 +22,134 @@
 				</a>
 
 			</div>
-					
 		</div>
-	</div>
+		
+        <div class="row">
 
-	{% for obj in object_list %}
-			<div class="row row-0-gutter">
-				<div class="col-md-8 col-md-offset-2 col-0-gutter">
-					<table>
-						<tr>
-							<td>
-								<h2><strong>{{ obj.title }}</strong></h2>
-							</td>
-							<td>
-								{% if request.user.is_authenticated %}
-									{% if obj.uploaded_by == request.user %}
-									<a href="{% url 'documents:delete' pk=obj.pk %}"  data-toggle="tooltip" data-placement="bottom" title="Eliminar categoria." >
-										<button  style="border-radius: 50px; padding: 3px;" class="btn btn-danger "><i class="glyphicon glyphicon-remove small"></i> </button>
-									</a>
-									
-									<a data-toggle="modal" data-toggle="tooltip" data-placement="bottom" title="Editar categoria." data-target="#myModal">
-										<button  style="border-radius: 50px; padding: 3px;" class="btn btn-warning "><i class="glyphicon glyphicon-pencil small"></i> </button>
-									</a>
-									{% endif %}
-								{% endif %}
-							</td>
-						</tr>
-					</table>
-
-					<p>{{ obj.description }}</p>
-					
-
-					<div class="table-responsive">
-						<table class="table table-bordered">
-							<thead class="thead-dark">
-								<tr>
-									<th>Documento</th>
-									<th>DESCRIPCION</th>
-									<th></th>
-								</tr>
-							</thead>
-							<tbody>
-								{% for doc in document_list %}
-									{% if doc.document_id.id == obj.id %}
-										<tr>
-											<td>
-												<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
-													<button class="btn btn-info btn-lg" style="margin: 0 5px 10px 0;"> <span class="glyphicon glyphicon-book"></span> {{doc}}</button>
-												</a>
-											</td>
-											<td>
-												{{doc.name}}
-											</td>
-											
-											<td>
-												<a href="{% url 'documents:delete_upload' pk=doc.pk %}"  data-toggle="tooltip" data-placement="bottom" title="Eliminar documento." >
-													<button  style="border-radius: 50px; padding: 3px;" class="btn btn-danger "><i class="glyphicon glyphicon-remove small"></i> </button>
-												</a>
-											</td>
-										</tr>
-									{% endif %}
-								{% endfor %}
-							</tbody>
-						</table>
+			<div class="col-md-6">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title"><strong>Capitulos</strong></h3>
+						<div class="pull-right">
+							<span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
+								<i class="glyphicon glyphicon-search"></i>
+							</span>
+						</div>
 					</div>
+					<div class="panel-body">
+						<input type="text" class="form-control" id="categorias-filter" data-action="filter" data-filters="#categorias" placeholder="Filter Developers" />
+					</div>
+					<table class="table table-hover" id="categorias">
+						<thead>
+							<tr>
+								<th>&nbsp;</th>
+								<th>Secciones</th>
+								<th>Descripcion</th>
+								<th>Acción</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for obj in object_list %}
+								<tr>
+									<td>{{forloop.counter}}</td>
+									<td>{{obj.title}}</td>
+									<td>{{obj.description}}</td>
+									<td>
+										{% if request.user.is_authenticated %}
+											{% if obj.uploaded_by == request.user %}
+											<a href="{% url 'documents:delete' pk=obj.pk %}"  data-toggle="tooltip" data-placement="bottom" title="Eliminar categoria." >
+												<button  style="border-radius: 50px; padding: 3px;" class="btn btn-danger "><i class="glyphicon glyphicon-remove small"></i> </button>
+											</a>
+											
+											<a data-toggle="modal" data-toggle="tooltip" data-placement="bottom" title="Editar categoria." data-target="#myModal">
+												<button  style="border-radius: 50px; padding: 3px;" class="btn btn-warning "><i class="glyphicon glyphicon-pencil small"></i> </button>
+											</a>
+											{% endif %}
+										{% endif %}
+									</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
 				</div>
 			</div>
-	{% endfor %}
+
+
+			<div class="col-md-6">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title"><strong>Documentos</strong></h3>
+						<div class="pull-right">
+							<span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
+								<i class="glyphicon glyphicon-search"></i>
+							</span>
+						</div>
+					</div>
+					<div class="panel-body">
+						<input type="text" class="form-control" id="generalidades-filter" data-action="filter" data-filters="#generalidades" placeholder="Filter Developers" />
+					</div>
+					<table class="table table-hover" id="generalidades">
+						<thead>
+							<tr>
+								<th>Seccion</th>
+								<th>Nombre documento</th>
+								<th>Documento</th>
+								<th>Acción</th>
+							</tr>
+						</thead>
+						<tbody>
+						{% for obj in object_list %}
+							{% for doc in document_list %}
+								{% if doc.document_id.id == obj.id %}
+									<tr>
+										
+										<td>
+											<strong>
+												{{obj.title}}
+											</strong>
+										</td>
+											
+										<td>{{doc.name}}</td>
+										
+										<td>
+											<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
+												<button class="btn btn-info btn-lg" style="margin: 0 5px 10px 0;"> <span class="glyphicon glyphicon-book"></span> </button>
+											</a>
+										</td>
+	
+										<td>
+											<a href="#"  data-toggle="tooltip" data-placement="bottom" title="Editar documento." >
+												<button  style="border-radius: 50px; padding: 8px;" class="btn btn-warning "><i class="glyphicon glyphicon-pencil small"></i> </button>
+											</a>
+											&nbsp;
+											&nbsp;
+											&nbsp;
+											<a href="{% url 'documents:delete_upload' pk=doc.pk %}"  data-toggle="tooltip" data-placement="bottom" title="Eliminar documento." >
+												<button  style="border-radius: 50px; padding: 8px;" class="btn btn-danger "><i class="glyphicon glyphicon-remove small"></i> </button>
+											</a>
+	
+								
+										</td>
+									</tr>
+								{% endif %}
+							{% endfor %}
+						{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+	
+	
+        </div>
+
 	</div>
 </section>
+
+
+
+
+
+
 
 
 <!-- Modal AGREGAR DOCUMENTO -->
@@ -143,9 +207,9 @@
 	</div>
 	</div>
 </div>
-		
 
-<!-- Modal -->
+
+<!-- Modal EDITAR CATEGORIA-->
 <div class="modal fade" id="myModal" role="dialog">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
@@ -168,61 +232,62 @@
 
 
 
-
-
-
-
-
-
-
-
-
-<section>
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12 text-center">
-				<div class="section-title">
-					<h2>DOCUMENTOS AIP</h2>
-				</div>
-			</div>
-		</div>
-		<div >
-			<a href="{% url 'documents:add' %}" rel="noopener noreferrer">
-				<button class="btn">AGREGAR</button>
-			</a>
-		</div>
-		<div class="table-responsive">
-			<table class="table table-bordered">
-				<thead class="thead-dark">
-					<tr>
-						<th>NOMBRE</th>
-						<th>DESCRIPCION</th>
-						<th></th>
-						<th></th>
-					</tr>
-				</thead>
-				<tbody>
-					{% for doc in document_list %}
-					<tr>
-						<td>
-							{{doc}}
-						</td>
-						<td>
-							{{doc.name}}
-						</td>
-						<td>
-							<button class="btn btn-success">Editar</button>
-						</td>
-						<td>
-							<button class="btn btn-danger">Eliminar</button>
-						</td>
-					</tr>
-			{% endfor %}
-				</tbody>
-			</table>
-		</div>
-	</div>
-</section>
 		
 
 {% endblock content %}
+
+
+
+{% block JS %}
+<script type="application/javascript">
+	(function(){
+		'use strict';
+		var $ = jQuery;
+		$.fn.extend({
+			filterTable: function(){
+				return this.each(function(){
+					$(this).on('keyup', function(e){
+						$('.filterTable_no_results').remove();
+						var $this = $(this), 
+							search = $this.val().toLowerCase(), 
+							target = $this.attr('data-filters'), 
+							$target = $(target), 
+							$rows = $target.find('tbody tr');
+							
+						if(search == '') {
+							$rows.show(); 
+						} else {
+							$rows.each(function(){
+								var $this = $(this);
+								$this.text().toLowerCase().indexOf(search) === -1 ? $this.hide() : $this.show();
+							})
+							if($target.find('tbody tr:visible').size() === 0) {
+								var col_count = $target.find('tr').first().find('td').size();
+								var no_results = $('<tr class="filterTable_no_results"><td colspan="'+col_count+'">No results found</td></tr>')
+								$target.find('tbody').append(no_results);
+							}
+						}
+					});
+				});
+			}
+		});
+		$('[data-action="filter"]').filterTable();
+	})(jQuery);
+
+	$(function(){
+		// attach table filter plugin to inputs
+		$('[data-action="filter"]').filterTable();
+		
+		$('.container').on('click', '.panel-heading span.filter', function(e){
+			var $this = $(this), 
+				$panel = $this.parents('.panel');
+			
+			$panel.find('.panel-body').slideToggle();
+			if($this.css('display') != 'none') {
+				$panel.find('.panel-body input').focus();
+			}
+		});
+		$('[data-toggle="tooltip"]').tooltip();
+	})
+</script>
+{% endblock JS %}

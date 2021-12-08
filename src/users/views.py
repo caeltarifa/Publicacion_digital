@@ -26,8 +26,8 @@ def register(request):
     if form.errors:
         errors = form.errors
 
-    template_name = "users/register.html"
     context = {"form": form, "errors": errors}
+    template_name = "users/register.html"
     return render(request, template_name, context)
 
 
@@ -51,7 +51,21 @@ def display_users(request):
     # querying Document table from db
     queryset1 = User.objects.all().order_by("-username")
 
-    context = {"user_list": queryset1}
+    #####################################################################################################################################################################
+    form = UserRegisterForm(request.POST or None)
+    errors = None
+    if form.is_valid():
+        form.save()
+        messages.success(
+            request, "Cuenta creada exitosamente! Ahora continua iniciando sesion."
+        )
+        return HttpResponseRedirect("/users/login/")
+
+    if form.errors:
+        errors = form.errors
+    #####################################################################################################################################################################
+
+    context = {"user_list": queryset1, "form": form, "errors": errors}
     return render(request, template_name, context)
 
 
