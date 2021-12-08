@@ -87,7 +87,7 @@
 															{% with obj.title|split:' - ' as vec_titulos %}
 															{% ifequal vec_titulos.0 'GEN' %}
 															{% for doc in document_list %}
-															{% if doc.document_id == obj.id %}
+															{% if doc.document_id.id == obj.id %}
 															<a href="http://google.com" target="_blank" rel="noopener noreferrer">
 																<div class="col-lg-6 col-md-6 col-sm-8 col-xs-12 container_foto ">
 																	<div class="ver_mas text-center">
@@ -145,7 +145,7 @@
 																	{% with obj.title|split:' - ' as vec_titulos %}
 																	{% ifequal vec_titulos.0 'AD0' %}
 																	{% for doc in document_list %}
-																	{% if doc.document_id == obj.id %}
+																	{% if doc.document_id.id == obj.id %}
 																	<a href="http://google.com" target="_blank" rel="noopener noreferrer">
 																		<div class="col-md-12 container_foto ">
 																			<div class="ver_mas text-center">
@@ -173,7 +173,7 @@
 																	{% with obj.title|split:' - ' as vec_titulos %}
 																	{% ifequal vec_titulos.0 'AD1' %}
 																	{% for doc in document_list %}
-																	{% if doc.document_id == obj.id %}
+																	{% if doc.document_id.id == obj.id %}
 																	<a href="" target="_blank" rel="noopener noreferrer">
 																		<div class="col-md-12 container_foto ">
 																			<div class="ver_mas text-center">
@@ -249,7 +249,7 @@
 																				{% with obj.title|split:' - ' as vec_titulos %}
 																				{% ifequal vec_titulos.0 'AD2INTL' %}
 																				{% for doc in document_list %}
-																				{% if doc.document_id == obj.id %}
+																				{% if doc.document_id.id == obj.id %}
 																				<tr>
 																					<td>{{doc}}</td>
 																					<td>
@@ -281,7 +281,7 @@
 																				{% with obj.title|split:' - ' as vec_titulos %}
 																				{% ifequal vec_titulos.0 'AD2NTL' %}
 																				{% for doc in document_list %}
-																				{% if doc.document_id == obj.id %}
+																				{% if doc.document_id.id == obj.id %}
 																				<tr>
 																					<td>{{doc}}</td>
 																					<td>
@@ -335,7 +335,7 @@
 													{% with obj.title|split:' - ' as vec_titulos %}
 													{% ifequal vec_titulos.0 'ERN' %}
 													{% for doc in document_list %}
-													{% if doc.document_id == obj.id %}
+													{% if doc.document_id.id == obj.id %}
 													<a href="http://google.com" target="_blank" rel="noopener noreferrer">
 														<div class="col-lg-6 col-md-6 col-sm-8 col-xs-12 container_foto ">
 															<div class="ver_mas text-center">
@@ -392,7 +392,7 @@
 													{% with obj.title|split:' - ' as vec_titulos %}
 													{% ifequal vec_titulos.0 'SUP' %}
 													{% for doc in document_list %}
-													{% if doc.document_id == obj.id %}
+													{% if doc.document_id.id == obj.id %}
 													<a href="http://google.com" target="_blank" rel="noopener noreferrer">
 														<div class="col-lg-6 col-md-6 col-sm-8 col-xs-12 container_foto ">
 															<div class="ver_mas text-center">
@@ -449,7 +449,7 @@
 												{% with obj.title|split:' - ' as vec_titulos %}
 												{% ifequal vec_titulos.0 'AIC' %}
 												{% for doc in document_list %}
-												{% if doc.document_id == obj.id %}
+												{% if doc.document_id.id == obj.id %}
 												<a href="http://google.com" target="_blank" rel="noopener noreferrer">
 													<div class="col-lg-6 col-md-6 col-sm-8 col-xs-12 container_foto ">
 														<div class="ver_mas text-center">
@@ -635,7 +635,7 @@
 			<h2><strong>{{ obj.title }}</strong></h2>
 			<p>{{ obj.description }}</p>
 			{% for doc in document_list %}
-			{% if doc.document_id == obj.id %}
+			{% if doc.document_id.id == obj.id %}
 			<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
 				<button class="btn btn-info" style="margin: 0 5px 10px 0;">{{doc}}</button>
 			</a>
