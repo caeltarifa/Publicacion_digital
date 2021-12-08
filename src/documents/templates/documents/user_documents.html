@@ -4,6 +4,179 @@
 
 {% block content %}
 
+
+<section>
+	<div class="container">
+
+	<div class="row">
+		<div class="col-lg-12 text-center">
+			<div class="section-title">
+				<h2>EDITAR AIP</h2>
+				<a data-toggle="modal" data-toggle="tooltip" data-placement="bottom" title="Subir un documento."  data-target="#agregar_documento_id">
+					<button class="btn btn-primary"> <i class="glyphicon glyphicon-file"></i> <i class="glyphicon glyphicon-plus"></i> </button>
+				</a>
+
+			</div>
+					
+		</div>
+	</div>
+
+	{% for obj in object_list %}
+			<div class="row row-0-gutter">
+				<div class="col-md-8 col-md-offset-2 col-0-gutter">
+					<table>
+						<tr>
+							<td>
+								<h2><strong>{{ obj.title }}</strong></h2>
+							</td>
+							<td>
+								{% if request.user.is_authenticated %}
+									{% if obj.uploaded_by == request.user %}
+									<a href="{% url 'documents:delete' pk=obj.pk %}"  data-toggle="tooltip" data-placement="bottom" title="Eliminar categoria." >
+										<button  style="border-radius: 50px; padding: 3px;" class="btn btn-danger "><i class="glyphicon glyphicon-remove small"></i> </button>
+									</a>
+									
+									<a data-toggle="modal" data-toggle="tooltip" data-placement="bottom" title="Editar categoria." data-target="#myModal">
+										<button  style="border-radius: 50px; padding: 3px;" class="btn btn-warning "><i class="glyphicon glyphicon-pencil small"></i> </button>
+									</a>
+									{% endif %}
+								{% endif %}
+							</td>
+						</tr>
+					</table>
+
+					<p>{{ obj.description }}</p>
+					
+
+					<div class="table-responsive">
+						<table class="table table-bordered">
+							<thead class="thead-dark">
+								<tr>
+									<th>Documento</th>
+									<th>DESCRIPCION</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for doc in document_list %}
+									{% if doc.document_id.id == obj.id %}
+										<tr>
+											<td>
+												<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
+													<button class="btn btn-info btn-lg" style="margin: 0 5px 10px 0;"> <span class="glyphicon glyphicon-book"></span> {{doc}}</button>
+												</a>
+											</td>
+											<td>
+												{{doc.name}}
+											</td>
+											
+											<td>
+												<a href="{% url 'documents:delete_upload' pk=doc.pk %}"  data-toggle="tooltip" data-placement="bottom" title="Eliminar documento." >
+													<button  style="border-radius: 50px; padding: 3px;" class="btn btn-danger "><i class="glyphicon glyphicon-remove small"></i> </button>
+												</a>
+											</td>
+										</tr>
+									{% endif %}
+								{% endfor %}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+	{% endfor %}
+	</div>
+</section>
+
+
+<!-- Modal AGREGAR DOCUMENTO -->
+<div class="modal fade" id="agregar_documento_id" role="dialog">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+			<h4 class="modal-title">Agregar documento</h4>
+		</div>
+		<div class="modal-body">
+
+			<div class="row">
+				<div class="col-md-4 col-md-offset-4">
+					<div class="content-section">
+						<form method="POST" enctype="multipart/form-data"> 
+							{% csrf_token %}
+							<fieldset class="form-group">
+								<legend class="border-bottom mb-4">Agregar documento</legend>
+								{% if errors %}
+									<p>{{ errors }}</p><br>
+								{% endif %}
+								<div>
+									<div class="form-group">
+										<select name="categoria" id="select_categoria_id" required>
+											{% for categoria in object_list %}
+												<option value="{{categoria.id}}">{{categoria.title}}</option>
+											{% endfor %}
+										</select>
+
+									</div>
+									<div class="form-group">
+										<input placeholder="Nombre" type="text" name="name_document" size="40" required>
+									</div>
+									<div class="form-group">
+										<input type="file" name="document_url" required>
+									</div>
+								</div>
+							</fieldset>
+							<div class="form-group">
+								<center>
+									<button class="btn btn-lg btn-info" type="submit">Subir Documento</button>
+								</center>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+		</div>
+		</div>
+	</div>
+	</div>
+</div>
+		
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+			<h4 class="modal-title">Modal Header</h4>
+		</div>
+		<div class="modal-body">
+
+			<p>This is a large modal.</p>
+			
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		</div>
+		</div>
+	</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
 <section>
 	<div class="container">
 		<div class="row">
@@ -15,8 +188,8 @@
 		</div>
 		<div >
 			<a href="{% url 'documents:add' %}" rel="noopener noreferrer">
-			<button class="btn">AGREGAR</button>
-		</a>
+				<button class="btn">AGREGAR</button>
+			</a>
 		</div>
 		<div class="table-responsive">
 			<table class="table table-bordered">
@@ -50,45 +223,6 @@
 		</div>
 	</div>
 </section>
-
-		<section>
-			<div class="container">
-
-			<div class="row">
-				<div class="col-lg-12 text-center">
-					<div class="section-title">
-						<h2>EDITAR AIP</h2>
-					</div>
-				</div>
-			</div>
-
-			{% for obj in object_list %}
-
-					<div class="row row-0-gutter">
-						<div class="col-md-8 col-md-offset-2 col-0-gutter">
-							<h2><strong>{{ obj.title }}</strong></h2>
-							<p>{{ obj.description }}</p>
-							{% for doc in document_list %}
-							{% if doc.document_id == obj.id %}
-							<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
-								<button class="btn btn-info btn-lg" style="margin: 0 5px 10px 0;"> <span class="glyphicon glyphicon-book"></span> {{doc}}</button>
-							</a>
-							{% endif %}
-							{% endfor %}
-							<br>
-							{% if request.user.is_authenticated %}
-							{% if obj.uploaded_by == request.user %}
-							<a href="{% url 'documents:delete' pk=obj.pk %}">
-								<button class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i> Eliminar</button>
-							</a>
-							{% endif %}
-							{% endif %}
-							<hr>
-						</div>
-					</div>
-			{% endfor %}
-			</div>
-		</section>
-
+		
 
 {% endblock content %}
