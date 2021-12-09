@@ -116,10 +116,11 @@ def user_documents(request):
 @login_required()
 def delete_document(request, pk):
     # querying Document table from db to get single row and deleting it
+    titulo = Document.objects.get(id=pk).title
     instance1 = get_object_or_404(Document, pk=pk).delete()
     instance2 = DocumentUpload.objects.filter(document_id=pk).delete()
 
-    messages.success(request, "successfully deleted the document")
+    messages.success(request, 'Se ha borrado exitosamente "'+ titulo +'"' )
     return redirect("documents:user_doc")
 
 @login_required()
