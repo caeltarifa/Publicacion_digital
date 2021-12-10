@@ -63,27 +63,23 @@
 														<h3 class="modal-title">GENERALIDADES</h3>
 													</div>
 													<div class="modal-body">
-		
 																{% for obj in object_list %}
 																{% with obj.title|split:' - ' as vec_titulos %}
 																{% ifequal vec_titulos.0 'GEN' %}
 																{% for doc in document_list %}
 																{% if doc.document_id.id == obj.id %}
-																<a href="http://google.com" target="_blank" rel="noopener noreferrer">
-																	<div class="col-lg-6 col-md-6 col-sm-8 col-xs-12 container_foto ">
-																		<div class="ver_mas text-center">
-																		<span class="lnr lnr-eye"></span>
-																		<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
-																			<button class="btn btn-info" style="margin: 0 5px 10px 0; width: 100%; height: 100%;">{{doc}}</button>
-																		</a>
+																<div class="col-md-4">
+																	<div class="card_inside">
+																		<img src="/static/images/imagenPDF.png" alt="Avatar" style="width:100%">
+																		<div class="titulo_img_pdf text-center">
+																			<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
+																				<button class="btn-img_pdf" ><h4><b> {{doc}}</b></h4> </button>
+																			</a>
+																		  
 																		</div>
-																		<article class="text-left">
-																			<h4>{{vec_titulos.0}}</h4>
-																		</article>
-																		<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
-																			alt="">
-																	</div>
-																</a>
+																	  </div>
+																	  <hr>
+																</div>
 																{% endif %}
 																{% endfor %}
 																{% endifequal%}
@@ -105,7 +101,7 @@
 											</div>
 										  </div>
 										  <div class="modal fade" id="ModalAD" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-											<div class="modal-dialog modal-lg">
+											<div class="modal-dialog ">
 											  <div class="modal-content">
 												<div class="modal-header">
 														<button type="button" class="close" onclick="document.getElementById('ad2intl').style.display='none'; document.getElementById('ad2ntl').style.display='none'"
@@ -113,66 +109,74 @@
 															<h3 class="modal-title">AERODROMOS</h3>
 															</div>
 															<div class="modal-body">
-																	<div class="row col-md-12">
-																		<div class="col-md-3">
+																	<div class="row">
+																		<div class="col-md-6">
 																			<h5>AD0</h5>
 																			{% for obj in object_list %}
 																			{% with obj.title|split:' - ' as vec_titulos %}
 																			{% ifequal vec_titulos.0 'AD0' %}
 																			{% for doc in document_list %}
 																			{% if doc.document_id.id == obj.id %}
-																			<a href="http://google.com" target="_blank" rel="noopener noreferrer">
-																				<div class="col-md-12 container_foto ">
-																					<div class="ver_mas text-center">
-																					<span class="lnr lnr-eye"></span>
-																					<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
-																						<button class="btn btn-info" style="margin: 0 5px 10px 0; width: 100%; height: 100%;">{{doc}}</button>
-																					</a>
+																			<div >
+																				<div class="card_inside">
+																					<img src="/static/images/imagenPDF.png" alt="Avatar" style="width:100%">
+																					<div class="titulo_img_pdf text-center">
+																						<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
+																							<button class="btn-img_pdf" ><h4><b> {{doc}}</b></h4> </button>
+																						</a>
+																					  
 																					</div>
-																					<article class="text-center">
-																						<h4>{{doc}}</h4>
-																					</article>
-																					<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
-																						alt="">
-																				</div>
-																			</a>
+																				  </div>
+																				  <hr>
+																			</div>
 																			{% endif %}
 																			{% endfor %}
 																			{% endifequal%}
 																			{% endwith%}
 																			{% endfor%}
 																		</div>
-																		<div class="col-md-3">
+																		<div class="col-md-6">
 																			<h5>AD1</h5>
 																			{% for obj in object_list %}
 																			{% with obj.title|split:' - ' as vec_titulos %}
 																			{% ifequal vec_titulos.0 'AD1' %}
 																			{% for doc in document_list %}
 																			{% if doc.document_id.id == obj.id %}
-																			<a href="" target="_blank" rel="noopener noreferrer">
-																				<div class="col-md-12 container_foto ">
-																					<div class="ver_mas text-center">
-																					<span class="lnr lnr-eye"></span>
-																					<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
-																						<button class="btn btn-info" style="margin: 0 5px 10px 0; width: 100%; height: 100%;">{{doc}}</button>
-																					</a>
-																				</div>
-																				<article class="text-center">
-																					<h4>{{doc}}</h4>
-																				</article>
-																					<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg" class="img-fluid"
-																						alt="">
-																				</div>
-																			</a>
+																			<div >
+																				<div class="card_inside">
+																					<img src="/static/images/imagenPDF.png" alt="Avatar" style="width:100%">
+																					<div class="titulo_img_pdf text-center">
+																						<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
+																							<button class="btn-img_pdf" ><h4><b> {{doc}}</b></h4> </button>
+																						</a>
+																					  
+																					</div>
+																				  </div>
+																				  <hr>
+																			</div>
 																			{% endif %}
 																			{% endfor %}
 																			{% endifequal%}
 																			{% endwith%}
 																			{% endfor%}
 																		</div>
-																		<div class="col-md-3">
+																		</div>
+																	<div class="row">
+																		<div class="col-md-6">
 																			<h5>AD2INTL</h5>
-																			<a href="" target="_blank" rel="noopener noreferrer">
+																			<div >
+																				<div class="card_inside">
+																					<img src="/static/images/imagenPDF.png" alt="Avatar" style="width:100%">
+																					<div class="titulo_img_pdf text-center">
+																						<a href="javascript:;" onclick="document.getElementById('ad2intl').style.display='block'; document.getElementById('ad2ntl').style.display='none';">
+																							<button class="btn-img_pdf" ><h4><b> doc</b></h4> </button>
+																						</a>
+																					  
+																					</div>
+																				  </div>
+																				  <hr>
+																				</div>
+																			<!-- <a href="" target="_blank" rel="noopener noreferrer">
 																				<div class="col-md-12 container_foto ">
 																					<div class="ver_mas text-center">
 																					<span class="lnr lnr-eye"></span>
@@ -186,11 +190,23 @@
 																					<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg" class="img-fluid"
 																						alt="">
 																				</div>
-																			</a>
+																			</a> --> 
 																		</div>
-																		<div class="col-md-3">
+																		<div class="col-md-6">
 																			<h5>AD2NTL</h5>
-																			<a href="" target="_blank" rel="noopener noreferrer">
+																			<div >
+																				<div class="card_inside">
+																					<img src="/static/images/imagenPDF.png" alt="Avatar" style="width:100%">
+																					<div class="titulo_img_pdf text-center">
+																						<a href="javascript:;" onclick="document.getElementById('ad2ntl').style.display='block';document.getElementById('ad2intl').style.display='none';">
+																							<button class="btn-img_pdf" ><h4><b> doc</b></h4> </button>
+																						</a>
+																					  
+																					</div>
+																				  </div>
+																				  <hr>
+																				</div>
+																			<!-- <a href="" target="_blank" rel="noopener noreferrer">
 																				<div class="col-md-12 container_foto ">
 																					<div class="ver_mas text-center">
 																					<span class="lnr lnr-eye"></span>
@@ -204,7 +220,7 @@
 																					<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg" class="img-fluid"
 																						alt="">
 																				</div>
-																			</a>
+																			</a> -->
 																		</div>
 																		</div>
 																	<div class="row col-md-12">
@@ -304,21 +320,18 @@
 														{% ifequal vec_titulos.0 'ERN' %}
 														{% for doc in document_list %}
 														{% if doc.document_id.id == obj.id %}
-														<a href="http://google.com" target="_blank" rel="noopener noreferrer">
-															<div class="col-lg-6 col-md-6 col-sm-8 col-xs-12 container_foto ">
-																<div class="ver_mas text-center">
-																<span class="lnr lnr-eye"></span>
-																<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
-																	<button class="btn btn-info" style="margin: 0 5px 10px 0; width: 100%; height: 100%;">{{doc}}</button>
-																</a>
+														<div class="col-md-6">
+															<div class="card_inside">
+																<img src="/static/images/imagenPDF.png" alt="Avatar" style="width:100%">
+																<div class="titulo_img_pdf text-center">
+																	<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
+																		<button class="btn-img_pdf" ><h4><b> {{doc}}</b></h4> </button>
+																	</a>
+																  
 																</div>
-																<article class="text-left">
-																	<h4>{{doc}}</h4>
-																</article>
-																<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
-																	alt="">
-															</div>
-														</a>
+															  </div>
+															  <hr>
+														</div>
 														{% endif %}
 														{% endfor %}
 														{% endifequal%}
@@ -352,21 +365,18 @@
 														{% ifequal vec_titulos.0 'SUP' %}
 														{% for doc in document_list %}
 														{% if doc.document_id.id == obj.id %}
-														<a href="http://google.com" target="_blank" rel="noopener noreferrer">
-															<div class="col-lg-6 col-md-6 col-sm-8 col-xs-12 container_foto ">
-																<div class="ver_mas text-center">
-																<span class="lnr lnr-eye"></span>
-																<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
-																	<button class="btn btn-info" style="margin: 0 5px 10px 0; width: 100%; height: 100%;">{{doc}}</button>
-																</a>
+														<div class="col-md-6">
+															<div class="card_inside">
+																<img src="/static/images/imagenPDF.png" alt="Avatar" style="width:100%">
+																<div class="titulo_img_pdf text-center">
+																	<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
+																		<button class="btn-img_pdf" ><h4><b> {{doc}}</b></h4> </button>
+																	</a>
+																  
 																</div>
-																<article class="text-left">
-																	<h4>{{doc}}</h4>
-																</article>
-																<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
-																	alt="">
-															</div>
-														</a>
+															  </div>
+															  <hr>
+														</div>
 														{% endif %}
 														{% endfor %}
 														{% endifequal%}
@@ -403,21 +413,18 @@
 														{% ifequal vec_titulos.0 'AIC' %}
 														{% for doc in document_list %}
 														{% if doc.document_id.id == obj.id %}
-														<a href="http://google.com" target="_blank" rel="noopener noreferrer">
-															<div class="col-lg-6 col-md-6 col-sm-8 col-xs-12 container_foto ">
-																<div class="ver_mas text-center">
-																<span class="lnr lnr-eye"></span>
-																<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
-																	<button class="btn btn-info" style="margin: 0 5px 10px 0; width: 100%; height: 100%;">{{doc}}</button>
-																</a>
+														<div class="col-md-6">
+															<div class="card_inside">
+																<img src="/static/images/imagenPDF.png" alt="Avatar" style="width:100%">
+																<div class="titulo_img_pdf text-center">
+																	<a href="/viewerjs/index.html#{{ cdn }}/media/{{ doc.document_url }}" target="_blank">
+																		<button class="btn-img_pdf" ><h4><b> {{doc}}</b></h4> </button>
+																	</a>
+																  
 																</div>
-																<article class="text-left">
-																	<h4>{{doc}}</h4>
-																</article>
-																<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
-																	alt="">
-															</div>
-														</a>
+															  </div>
+															  <hr>
+														</div>
 														{% endif %}
 														{% endfor %}
 														{% endifequal%}
