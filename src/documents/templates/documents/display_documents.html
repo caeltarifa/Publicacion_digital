@@ -842,8 +842,21 @@
 							<h1>GESTION DE DOCUMENTOS</h1>
 
 							<div class="container-fluid">
+								<div class="row">
+									<div class="col-md-6">
+										<div class="card">
+											<img src="/static/images/imageFOLDER.png" alt="Avatar" style="width:100%">
+											<div class="titulo_img_pdf text-center">
+												<a href="{% url 'documents:user_doc' %}">
+													<button class="btn-img_pdf" ><h4><b> DOCUMENTOS</b></h4> </button>
+												</a>
+											  
+											</div>
+										  </div>
+									</div>
+								</div>
 								<!-- OPCIONAL -->
-								<a href="{% url 'documents:user_doc' %}" rel="noopener noreferrer">
+								<!-- <a href="{% url 'documents:user_doc' %}" rel="noopener noreferrer">
 									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto ">
 										<div class="ver_mas text-center">
 											<span class="lnr lnr-eye"></span>
@@ -857,10 +870,10 @@
 										<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
 											alt="">
 									</div>
-								</a>
+								</a> -->
 								<!-- FIN OPCIONAL -->
 
-								<a href="{% url 'documents:add' %}" rel="noopener noreferrer">
+								<!-- <a href="{% url 'documents:add' %}" rel="noopener noreferrer">
 									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto ">
 										<div class="ver_mas text-center">
 											<span class="lnr lnr-eye"></span>
@@ -890,7 +903,7 @@
 										<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
 											alt="">
 									</div>
-								</a>
+								</a> -->
 
 
 							</div>
@@ -903,8 +916,20 @@
 							<h1>GESTION DE USUARIOS</h1>
 
 							<div class="container-fluid">
-
-								<a href="{% url 'display_users' %}" rel="noopener noreferrer">
+								<div class="row">
+									<div class="col-md-6">
+										<div class="card">
+											<img src="/static/images/imagenUSUARIO.png" alt="Avatar" style="width:100%">
+											<div class="titulo_img_pdf text-center">
+												<a href="{% url 'display_users' %}" >
+													<button class="btn-img_pdf"><h4><b> USUARIOS</b></h4> </button>
+												</a>
+											  
+											</div>
+										  </div>
+									</div>
+								</div>
+								<!-- <a href="{% url 'display_users' %}" rel="noopener noreferrer">
 									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto ">
 										<div class="ver_mas text-center">
 											<span class="lnr lnr-eye"></span>
@@ -934,7 +959,7 @@
 										<img src="https://img-aws.ehowcdn.com/400x400/ds-img.studiod.com/Half_Dome_from_Glacier_Point0_1.jpg"
 											alt="">
 									</div>
-								</a>
+								</a> -->
 							</div>
 						</div>
 					</div>
